@@ -1,0 +1,185 @@
+[
+  {
+      "label": "Dashboard", 
+      "icon": {
+          "package": "react-icons/md", 
+          "name": "MdDashboard"
+      }, 
+      "sublabels": [
+          {"name": "Dashboard", "path": "/Dashboard", "role": null}
+      ]
+  }, 
+  {
+      "label": "Metal Rates", 
+      "icon": {
+          "package": "react-icons/gi", 
+          "name": "GiMetalBar"
+      }, 
+      "sublabels": [
+          {"name": "Metal Rates", "path": "/Metal-Rates", "role": null}, 
+          {"name": "Metal Rate Discount", "path": "/Metal-Rate-Discount", "role": null}, 
+          {"name": "Old Metal Rate", "path": "/Old-Metal-Rate", "role": null}
+      ]
+  }, 
+  {
+      "label": "Catalog Master", 
+      "icon": {
+          "package": "react-icons/md", 
+          "name": "MdCategory"
+      }, 
+      "sublabels": [
+          {"name": "QC Cancel Reasons", "path": "/QC-Cancel-Reasons", "role": null}, 
+          {"name": "Clarity", "path": "/Clarity", "role": null}, 
+          {"name": "Color", "path": "/Color", "role": null}, 
+          {"name": "Counter", "path": "/Counter", "role": null}, 
+          {"name": "Shape", "path": "/Shape", "role": null}, 
+          {"name": "Cut", "path": "/Cut", "role": null}, 
+          {"name": "Financial Year", "path": "/Financial-Year", "role": null}, 
+          {"name": "Floor", "path": "/Floor", "role": null}, 
+          {"name": "Hook", "path": "/Hook", "role": null}, 
+          {"name": "Making Type", "path": "/Making-Type", "role": null}, 
+          {"name": "Material", "path": "/Material", "role": null}, 
+          {"name": "Material Rate", "path": "/Material-Rate", "role": null},
+          {"name": "Purity", "path": "/Purity", "role": null}, 
+          {"name": "Screw", "path": "/Screw", "role": null}, 
+          {"name": "Stone", "path": "/Stone", "role": null}, 
+          {"name": "Tag Type", "path": "/Tag-Type", "role": null}, 
+          {"name": "Tax Group", "path": "/Tax-Group", "role": null}, 
+          {"name": "Tax", "path": "/Tax", "role": null}, 
+          {"name": "Old Metal Type", "path": "/Old-Metal-Type", "role": null}, 
+          {"name": "Theme", "path": "/Theme", "role": null}, 
+          {"name": "UOM", "path": "/UOM", "role": null}, 
+          {"name": "Metal Process Master", "path": "/Metal-Process-Master", "role": null}, 
+          {"name": "Weight Range", "path": "/Weight-Range", "role": null}, 
+          {"name": "Stock Allotment Settings", "path": "/Stock-Allotment-Settings", "role": null}, 
+          {"name": "Delivery Location", "path": "/Delivery-Location", "role": null}, 
+          {"name": "Size", "path": "/Size", "role": null}, 
+          {"name": "Section", "path": "/Section", "role": null}, 
+          {"name": "Old Metal Category", "path": "/Old-Metal-Category", "role": null}, 
+          {"name": "Charges", "path": "/Charges", "role": null}, 
+          {"name": "Attribute", "path": "/Attribute", "role": null}, 
+          {"name": "Damage Master", "path": "/Damage-Master", "role": null}, 
+          {"name": "Product Division", "path": "/Product-Division", "role": null}, 
+          {"name": "Metal Purity Rate Master", "path": "/Metal-Purity-Rate-Master", "role": null}, 
+          {"name": "Cash Deposit", "path": "/Cash-Deposit", "role": null}, 
+          {"name": "Stock Issue Types", "path": "/Stock-Issue-Types", "role": null}, 
+          {"name": "Supplier Catalogue", "path": "/Supplier-Catalogue", "role": null}, 
+          {"name": "Diamond Master", "path": "/Diamond-Master", "role": null}, 
+          {"name": "Diamond Rate Master", "path": "/Diamond-Rate-Master", "role": null}, 
+          {"name": "Selling Diamond Rate Master", "path": "/Selling-Diamond-Rate-Master", "role": null}, 
+          {"name": "Pay Device", "path": "/Pay-Device", "role": null}, 
+          {"name": "Account Head", "path": "/Account-Head", "role": null}, 
+          {"name": "Breakeven Logs", "path": "/Breakeven-Logs", "role": null}
+      ]
+  }, 
+  {
+      "label": "Retail Catalog", 
+      "icon": {
+          "package": "react-icons/fa", 
+          "name": "FaTags"
+      }, 
+      "sublabels": [
+          {"name": "Metal", "path": "/Metal", "role": null}, 
+          {"name": "Category", "path": "/Category", "role": null}, 
+          {"name": "Product", "path": "/Product", "role": null}, 
+          {"name": "Design", "path": "/Design", "role": null}, 
+          {"name": "Sub Design", "path": "/Sub-Design", "role": null}, 
+          {"name": "Design Mapping", "path": "/Design-Mapping", "role": null}, 
+          {"name": "Sub Design Mapping", "path": "/Sub-Design-Mapping", "role": null}, 
+          {"name": "MC & VA Settings", "path": "/MC-And-VA-Settings", "role": null}, 
+          {"name": "Collection Master", "path": "/Collection-Master", "role": null}, 
+          {"name": "Stone Rate settings", "path": "/Stone-Rate-settings", "role": null}, 
+          {"name": "Dynamic Day Close", "path": "/Dynamic-Day-Close", "role": null}
+      ]
+  }, 
+  {
+      "label": "Purchase Module", 
+      "icon": {
+          "package": "react-icons/fa", 
+          "name": "FaShoppingCart"
+      }, 
+      "sublabels": [
+          {"name": "Create Purchase Order", "path": "/Create-Purchase-Order", "role": null}, 
+          {"name": "GRN Entry", "path": "/GRN-Entry", "role": null}, 
+          {"name": "Supplier Bill Entry", "path": "/Supplier-Bill-Entry", "role": null}, 
+          {"name": "HM Issue / Receipt", "path": "/HM-Issue-Or-Receipt", "role": null}, 
+          {"name": "Qc Issue / Receipt", "path": "/Qc-Issue-Or-Receipt", "role": null}, 
+          {"name": "Rate Fix (Against GST Purchase)", "path": "/Rate-Fix", "role": null}, 
+          {"name": "Smit /Supplier Payment", "path": "/Smit-Or-Supplier-Payment", "role": null}, 
+          {"name": "Approval Rate Fixing", "path": "/Approval-Rate-Fixing", "role": null}, 
+          {"name": "Purchase Return", "path": "/Purchase-Return", "role": null}, 
+          {"name": "Vendor Registration", "path": "/Vendor-Registration", "role": null}, 
+          {"name": "Vendor Approval", "path": "/Vendor-Approval", "role": null}, 
+          {"name": "Supplier Approval Bill Entry", "path": "/Supplier-Approval-Bill-Entry", "role": null}, 
+          {"name": "Order Description", "path": "/Order-Description", "role": null}, 
+          {"name": "Smit Metal Issue", "path": "/Smit-Metal-Issue", "role": null}, 
+          {"name": "Debit / Credit Entry", "path": "/Debit-Or-Credit-Entry", "role": null}, 
+          {"name": "Approval Stock List", "path": "/Approval-Stock-List", "role": null}, 
+          {"name": "Approval To Invoice Conversion", "path": "/Approval-To-Invoice-Conversion", "role": null}, 
+          {"name": "Smit Company OP Balance", "path": "/Smit-Company-OP-Balance", "role": null}
+      ]
+  }, 
+  {
+      "label": "Inventory", 
+      "icon": {
+          "package": "react-icons/fa", 
+          "name": "FaBoxes"
+      }, 
+      "sublabels": [
+          {"name": "Lot Inward", "path": "/Lot-Inward", "role": null}, 
+          {"name": "Lot Merge", "path": "/Lot-Merge", "role": null}, 
+          {"name": "Lot Split", "path": "/Lot-Split", "role": null}, 
+          {"name": "Tagging", "path": "/Tagging", "role": null}, 
+          {"name": "Duplicate Tag", "path": "/Duplicate-Tag", "role": null}, 
+          {"name": "Bulk Tag Edit", "path": "/Bulk-Tag-Edit", "role": null}, 
+          {"name": "Bulk Tag Edit Log", "path": "/Bulk-Tag-Edit-Log", "role": null}, 
+          {"name": "Sub Product Edit", "path": "/Sub-Product-Edit", "role": null}, 
+          {"name": "Order Link", "path": "/Order-Link", "role": null}, 
+          {"name": "Lot Generate", "path": "/Lot-Generate", "role": null}, 
+          {"name": "Branch", "path": "/Branch", "role": null}, 
+          {"name": "Order Unlink", "path": "/Order-Unlink", "role": null}, 
+          {"name": "Non Tag Receipt", "path": "/Non-Tag-Receipt", "role": null}, 
+          {"name": "BT Approval", "path": "/BT-Approval", "role": null}, 
+          {"name": "Re-Tagging", "path": "/Re-Tagging", "role": null}, 
+          {"name": "Old Sale Import", "path": "/Old-Sale-Import", "role": null}, 
+          {"name": "Tag Collection Mapping", "path": "/Tag-Collection-Mapping", "role": null}, 
+          {"name": "Old Tag Import", "path": "/Old-Tag-Import", "role": null}
+      ]
+  }, 
+  {
+      "label": "VS Appointment", 
+      "icon": {
+          "package": "react-icons/ai", 
+          "name": "AiOutlineCalenda"
+      }, 
+      "sublabels": [
+          {"name": "Slot Creation", "path": "/Slot-Creation", "role": null}, 
+          {"name": "New Request", "path": "/New-Request", "role": null}, 
+          {"name": "All Request", "path": "/All-Request", "role": null}
+      ]
+  }, 
+  {
+      "label": "Customer Orders", 
+      "icon": {
+          "package": "react-icons/fa", 
+          "name": "FaClipboardList"
+      }, 
+      "sublabels": [
+          {"name": "Create Order", "path": "/Create-Order", "role": null}, 
+          {"name": "Order Advance Details", "path": "/Order-Advance-Details", "role": null}, 
+          {"name": "Karigar Allotment", "path": "/Karigar-Allotment", "role": null}, 
+          {"name": "Order Status Report", "path": "/Order-Status-Report", "role": null}
+      ]
+  }, 
+  {
+      "label": "Service Bill", 
+      "icon": {
+          "package": "react-icons/fa", 
+          "name": "FaFileInvoice"
+      }, 
+      "sublabels": [
+          {"name": "New Bill", "path": "/New-Bill", "role": null}, 
+          {"name": "Search Bill", "path": "/Search-Bill", "role": null}
+      ]
+  }, 
+  {"label": "Sales Transfer", "icon": {"package": "react-icons/fa", "name": "FaExchangeAlt"}, "sublabels": [{"name": "Sales Item Transfer", "path": "/Sales-Item-Transfer", "role": null}, {"name": "Sales Return Transfer", "path": "/Sales-Return-Transfer", "role": null}]}, {"label": "Section Transfer", "icon": {"package": "react-icons/hi", "name": "HiOutlineSwitchHorizontal"}, "sublabels": [{"name": "Section Item Transfer", "path": "/Section-Item-Transfer", "role": null}]}, {"label": "Estimation", "icon": {"package": "react-icons/gi", "name": "GiReceiveMoney"}, "sublabels": [{"name": "Add Estimation", "path": "/Add-Estimation", "role": null}, {"name": "Estimation List", "path": "/Estimation-List", "role": null}, {"name": "Estimate Discount Approval", "path": "/Estimate-Discount-Approval", "role": null}]}, {"label": "Billing", "icon": {"package": "react-icons/md", "name": "MdReceipt"}, "sublabels": [{"name": "New Bill", "path": "/New-Bill", "role": null}, {"name": "Bill No Settings", "path": "/Bill-No-Settings", "role": null}, {"name": "Search Bill", "path": "/Search-Bill", "role": null}, {"name": "Issue", "path": "/Issue", "role": null}, {"name": "Receipt", "path": "/Receipt", "role": null}, {"name": "Approval Bills", "path": "/Approval-Bills", "role": null}, {"name": "Jewelry Not Delivered", "path": "/Jewelry-Not-Delivered", "role": null}, {"name": "Bill Split", "path": "/Bill-Split", "role": null}, {"name": "Denomination", "path": "/Denomination", "role": null}]}, {"label": "Vouchers", "icon": {"package": "react-icons/fa", "name": "FaTicketAlt"}, "sublabels": [{"name": "Sales Based Voucher & Seetings", "path": "/Sales-Based-Voucher-and-Seetings", "role": null}, {"name": "Paid / Free Voucher & Settings", "path": "/Paid-Or-Free-Voucher-and-Settings", "role": null}, {"name": "Print Paid / Free Vouchers", "path": "/Print-Paid-Or-Free-Vouchers", "role": null}]}, {"label": "Stock Ageing", "icon": {"package": "react-icons/md", "name": "MdHistory"}, "sublabels": [{"name": "Green Tagging", "path": "/Green-Tagging", "role": null}, {"name": "Stock Age Analysis", "path": "/Stock-Age-Analysis", "role": null}, {"name": "Stock Age Analysis Dynamic", "path": "/Stock-Age-Analysis-Dynamic", "role": null}, {"name": "Green Tag Report", "path": "/Green-Tag-Report", "role": null}, {"name": "GT Incentive Report", "path": "/GT-Incentive-Report", "role": null}, {"name": "GT Sales Return Report", "path": "/GT-Sales-Return-Report", "role": null}]}, {"label": "Sales Report", "icon": {"package": "react-icons/md", "name": "MdHistory"}, "sublabels": [{"name": "Cash Abstract", "path": "/Cash-Abstract", "role": null}, {"name": "Detailed Sales Item-wise", "path": "/Detailed-Sales-Item-wise", "role": null}, {"name": "Bill Wise Transaction", "path": "/Bill-Wise-Transaction", "role": null}, {"name": "Partly Sold", "path": "/Partly-Sold", "role": null}, {"name": "E-Invoice Report", "path": "/E-Invoice-Report", "role": null}, {"name": "Home Bill Report", "path": "/Home-Bill-Report", "role": null}, {"name": "Card Receipts Report", "path": "/Card-Receipts-Report", "role": null}, {"name": "Cancelled Bills", "path": "/Cancelled-Bills", "role": null}, {"name": "Discount Report", "path": "/Discount-Report", "role": null}, {"name": "B2B GST Bills Report", "path": "/B2B-GST-Bills-Report", "role": null}, {"name": "Employee Sales Referral", "path": "/Employee-Sales-Referral", "role": null}, {"name": "Closed Chit Report", "path": "/Closed-Chit-Report", "role": null}, {"name": "Old Metal Purchase", "path": "/Old-Metal-Purchase", "role": null}, {"name": "Sales Return Report", "path": "/Sales-Return-Report", "role": null}, {"name": "Employee Sales Referral & Sale", "path": "/Employe-Sales-Referral-and-Sale", "role": null}, {"name": "Old Metal Analysis", "path": "/Old-Metal-Analysis", "role": null}, {"name": "Old Metal Profit & Loss Report", "path": "/Old-Metal-Profit-and-Loss-Report", "role": null}, {"name": "Advance Detailed Report", "path": "/Advance-Detailed-Report", "role": null}, {"name": "Voucher Issues / Received", "path": "/Voucher-Issues-Or-Received", "role": null}, {"name": "Tag Wise Profit", "path": "/Tag-Wise-Profit", "role": null}, {"name": "Lot Wise Sales Report", "path": "/Lot-Wise-Sales-Report", "role": null}, {"name": "Pay Device Report", "path": "/Pay-Device-Report", "role": null}, {"name": "Weight Range Wise Sales", "path": "/Weight-Range-Wise-Sales", "role": null}, {"name": "Item Delivery Report", "path": "/Item-Delivery-Report", "role": null}, {"name": "Detailed Day Transaction Report", "path": "/Detailed-Day-Transaction-Report", "role": null}, {"name": "Sales Transfer Report", "path": "/Sales-Transfer-Report", "role": null}]}, {"label": "Purchase Report", "icon": {"package": "react-icons/hi", "name": "HiOutlineDocumentReport"}, "sublabels": [{"name": "Supplier Bills", "path": "/Supplier-Bills", "role": null}, {"name": "GRN Bills", "path": "/GRN-Bills", "role": null}, {"name": "Purchase Order", "path": "/Purchase-Order", "role": null}, {"name": "Purchase Payments", "path": "/Purchase-Payments", "role": null}, {"name": "Item Wise Report", "path": "/Item-Wise-Report", "role": null}, {"name": "Purchase Item QC", "path": "/Purchase-Item-QC", "role": null}, {"name": "Purchase HM Status", "path": "/Purchase-HM-Status", "role": null}, {"name": "Approval Stock Report", "path": "/Approval-Stock-Report", "role": null}, {"name": "Smith Metal Issue", "path": "/Smith-Metal-Issue", "role": null}, {"name": "Smith Ledger", "path": "/Smith-Ledger", "role": null}, {"name": "Contract Price Report", "path": "/Contract-Price-Report", "role": null}, {"name": "Rate Fixed Report", "path": "/Rate-Fixed-Report", "role": null}, {"name": "Selling VA & MC Report", "path": "/Selling-VA-and-MC-Report", "role": null}, {"name": "Supplier Ledger", "path": "/Supplier-Ledger", "role": null}, {"name": "Rate Unfixing Report", "path": "/Rate-Unfixing-Report", "role": null}, {"name": "Supplier Approval Ledger", "path": "/Supplier-Approval-Ledger", "role": null}, {"name": "Purchase Return", "path": "/Purchase-Return", "role": null}, {"name": "Smith Transaction", "path": "/Smith-Transaction", "role": null}, {"name": "HO Vault Report", "path": "/HO-Vault-Report", "role": null}, {"name": "Lot Merge Reports", "path": "/Lot-Merge-Reports", "role": null}, {"name": "Lot Split Reports", "path": "/Lot-Split-Reports", "role": null}, {"name": "Weight Gain / Loss Report", "path": "/Weight-Gain-Or-Loss-Report", "role": null}, {"name": "Approval Unfixing Report", "path": "/Approval-Unfixing-Report", "role": null}]}, {"label": "Stock Issue / Receipt", "icon": {"package": "react-icons/ai", "name": "AiOutlineBarChart"}, "sublabels": [{"name": "Stock Issue", "path": "/Stock-Issue", "role": null}]}, {"label": "Stock Report", "icon": {"package": "react-icons/bi", "name": "BiTransferAlt"}, "sublabels": [{"name": "Lot wise", "path": "/Lot-wiseLot-Vs-Tagged-Vault", "role": null}, {"name": "Lot Vs Tagged Vault", "path": "/Branch-Transfer", "role": null}, {"name": "Branch Transfer", "path": "/Other-Issue", "role": null}, {"name": "Other Issue", "path": "/Re-Order-Items", "role": null}, {"name": "Re-Order Items", "path": "/Available-Stock-Design-Wise", "role": null}, {"name": "Available Stock - Design Wise", "path": "/Branch-Re-Order-Items", "role": null}, {"name": "Branch Re-Order Items", "path": "/Available-Stock", "role": null}, {"name": "Available Stock", "path": "/Re-Order-Report", "role": null}, {"name": "Re-Order Report", "path": "/Available-Stock-Stone-Items", "role": null}, {"name": "Available Stock - Stone Items", "path": "/Stock-Checking-Tag-Scan", "role": null}, {"name": "Stock Checking-Tag Scan", "path": "/Scanned-and-Unscanned-Details", "role": null}, {"name": "Scanned & Unscanned Details", "path": "/Available-App-Stock-Design-Wise", "role": null}, {"name": "Available App Stock - Design Wise", "path": "/Stock-In-and-Out-Report", "role": null}, {"name": "Stock In & Out Report", "path": "/Reserve-Order-Available-Stock", "role": null}, {"name": "Reserve Order - Available Stock", "path": "/Section-Transfer-Report", "role": null}, {"name": "Section Transfer Report", "path": "/Approval-In-Out-Report", "role": null}, {"name": "Approval In Out Report", "path": "/Employee-Wise-tag", "role": null}, {"name": "Employee Wise tag", "path": "/Stock-Issue-Report", "role": null}, {"name": "Stock Issue Report", "path": "/Retag-Report", "role": null}, {"name": "Retag Report", "path": "/Branch-Vault-Report", "role": null}, {"name": "Branch Vault Report", "path": "/HO-Daily-Stock", "role": null}, {"name": "HO Daily Stock", "path": "/", "role": null}]}, {"label": "Repair Order", "icon": {"package": "react-icons/fa", "name": "FaWarehouse"}, "sublabels": [{"name": "Create Order", "path": "/Create-Order", "role": null}, {"name": "Karigar Allotment", "path": "/Karigar-Allotment", "role": null}, {"name": "Repair Order Status", "path": "/Repair-Order-Status", "role": null}, {"name": "Repair Order Stock Report", "path": "/Repair-Order-Stock-Report", "role": null}, {"name": "Metal Issue Receipt", "path": "/Metal-Issue-Receipt", "role": null}]}, {"label": "MIS Report", "icon": {"package": "react-icons/fa", "name": "FaChartPie"}, "sublabels": [{"name": "Stock ratio availability", "path": "/Stock-ratio-availability", "role": null}, {"name": "Bill Copy Details", "path": "/Bill-Copy-Details", "role": null}, {"name": "Cash Book", "path": "/Cash-Book", "role": null}, {"name": "Other Issue", "path": "/Other-Issue", "role": null}, {"name": "Tag Movement History", "path": "/Tag-Movement-History", "role": null}, {"name": "Customer & Tag History", "path": "/Customer-&-Tag-History", "role": null}, {"name": "Sales Comparison", "path": "/Sales-Comparison", "role": null}, {"name": "Tag History", "path": "/Tag-History", "role": null}, {"name": "Unbilled Estimation", "path": "/Unbilled-Estimation", "role": null}, {"name": "Month on Month Sales Comparison", "path": "/Month-on-Month-Sales-Comparison", "role": null}, {"name": "Karigar Wise Sales", "path": "/Karigar-Wise-Sales", "role": null}, {"name": "Stock and Sales Report", "path": "/Stock-and-Sales-Report", "role": null}, {"name": "Karigar Wise Sales Detail", "path": "/Karigar-Wise-Sales-Detail", "role": null}, {"name": "Profile Update Log", "path": "/Profile-Update-Log", "role": null}, {"name": "Customer Ledger", "path": "/Customer-Ledger", "role": null}, {"name": "Stock Rotation Report", "path": "/Stock-Rotation-Report", "role": null}, {"name": "Customer Sales Analysis", "path": "/Customer-Sales-Analysis", "role": null}, {"name": "Advance Transfer", "path": "/Advance-Transfer", "role": null}, {"name": "Customer Database", "path": "/Customer-Database", "role": null}, {"name": "Area wise Chit & Sales Report", "path": "/Area-wise-Chit-&-Sales-Report", "role": null}, {"name": "Cash Deposit Report", "path": "/Cash-Deposit-Report", "role": null}, {"name": "Wishlist", "path": "/Wishlist", "role": null}, {"name": "Supplier Catalogue Wishlist", "path": "/Supplier-Catalogue-Wishlist", "role": null}, {"name": "Fact sheet List", "path": "/Fact-sheet-List", "role": null}, {"name": "Enquiry List", "path": "/Enquiry-List", "role": null}]}, {"label": "credit Issue & Received", "icon": {"package": "react-icons/md", "name": "MdAttachMoney"}, "sublabels": [{"name": "Today Issue And Received", "path": "/Today-Issue-And-Received", "role": null}, {"name": "Credit History Details", "path": "/Credit-History-Details", "role": null}, {"name": "Credit Pending Report", "path": "/Credit-Pending-Report", "role": null}, {"name": "Credit History Details", "path": "/Tobe-History-Details", "role": null}, {"name": "Credit Pending Report", "path": "/Tobe-Pending-Report", "role": null}, {"name": "Tobe History Details", "path": "/", "role": null}, {"name": "Tobe Pending Report", "path": "/", "role": null}]}, {"label": "Auditor Report", "icon": {"package": "react-icons/ri", "name": "RiFileSearchLine"}, "sublabels": [{"name": "Pan Bill Details", "path": "/Pan-Bill-Details", "role": null}, {"name": "Monthly Sales Report", "path": "/Monthly-Sales-Report", "role": null}, {"name": "Repair GST Abstract", "path": "/Repair-GST-Abstract", "role": null}]}, {"label": "Old Metal Porcess", "icon": {"package": "react-icons/gi", "name": "GiAnvilImpact"}, "sublabels": [{"name": "Pocketing Entry", "path": "/Pocketing-Entry", "role": null}, {"name": "Process Issue / Report", "path": "/Process-Issue-Report", "role": null}, {"name": "Metal Process Report", "path": "/Metal-Process-Report", "role": null}, {"name": "Metal Process Detailed Report", "path": "/Metal-Process-Detailed-Report", "role": null}]}, {"label": "Task Tracker", "icon": {"package": "react-icons/bi", "name": "BiTask"}, "sublabels": [{"name": "Task List", "path": "/Task-List", "role": null}, {"name": "Notice Board", "path": "/Notice-Board", "role": null}]}, {"label": "CRM Module", "icon": {"package": "react-icons/ri", "name": "RiCustomerService2Fill"}, "sublabels": [{"name": "Feedback Mater", "path": "/Feedback-Mater", "role": null}, {"name": "Customer Database", "path": "/Customer-Database", "role": null}, {"name": "Feedback Report", "path": "/Feedback-Report", "role": null}]}, {"label": "Accounts Stock", "icon": {"package": "react-icons/fa", "name": "FaFileInvoiceDollar"}, "sublabels": [{"name": "Metal Stock Report", "path": "/Metal-Stock-Report", "role": null}, {"name": "Available Stock Details", "path": "/Available-Stock-Details", "role": null}, {"name": "Re-Tagging Report", "path": "/Re-Tagging-Report", "role": null}]}, {"label": "Order Management", "icon": {"package": "react-icons/md", "name": "MdAssignmentTurnedIn"}, "sublabels": [{"name": "Cart", "path": "/Cart", "role": null}, {"name": "Cart Status", "path": "/Cart-Status", "role": null}]}]

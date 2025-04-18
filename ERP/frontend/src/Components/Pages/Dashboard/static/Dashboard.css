@@ -1,0 +1,22 @@
+.dashboard {
+    margin: 1.5% 2%;
+}
+
+h5 {
+    color: rgb(107, 106, 106);
+}
+
+.content-tab {
+    border: 1px solid blue;
+    border-radius: 8px;
+    display: inline-block;
+    /* So it wraps tightly */
+    padding: 8px 16px;
+    margin-top: 12px;
+}
+
+
+.bg-gray {
+    border: 1px solid black;
+    background-color: rgb(216, 214, 214);
+}

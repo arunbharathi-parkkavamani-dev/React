@@ -1,0 +1,13 @@
+.main-content {
+    transition: margin-left 0.3s ease;
+}
+
+.main-content.expanded {
+    margin-left: 250px;
+    /* Sidebar expanded width */
+}
+
+.main-content.collapsed {
+    margin-left: 85px;
+    /* Sidebar collapsed width */
+}
