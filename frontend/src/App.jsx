@@ -48,7 +48,7 @@ function App() {
 
 
   return (
-    <Router basename="/erp">
+    <Router basename="/">
       <PageTitleSetter />
       <Layouts expanded={expanded} setExpanded={setExpanded} />
     </Router>
