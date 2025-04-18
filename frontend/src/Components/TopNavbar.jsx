@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { IoNotifications } from 'react-icons/io5';
 import { FaUserCircle } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './static/TopNavbar.css'
+import './Static/TopNavbar.css'
 
 const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
