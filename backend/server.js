@@ -27,7 +27,7 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Server running on http://192.168.1.35:${PORT}`);
 });
 
-cron.schedule('* 9 * * *', async () => {
+cron.schedule('30 10 * * *', async () => {
   console.log('⏰ Running daily gold rate fetch...');
   await updateGoldRateFromAPI({ params: {}, body: {} }, {
     json: (data) => console.log("✅ Auto Updated:", data),
