@@ -69,9 +69,9 @@ export const updateGoldRateFromAPI = async () => {
         const gold24KT = parseFloat(goldPricePerGramINR.toFixed(2));
 
         // Optional: derive 22KT and 18KT
-        const gold22KT = parseFloat((gold24KT * 0.916).toFixed(2));
-        const gold20KT = parseFloat((gold24KT * 0.833).toFixed(2));
-        const gold18KT = parseFloat((gold24KT * 0.75).toFixed(2));
+        const gold22KT = Math.round(gold24KT * 0.916);
+        const gold20KT = Math.round(gold24KT * 0.833);
+        const gold18KT = Math.round(gold24KT * 0.750);
 
         // Update the first document or by employee
         const updated = await MetalRates.findOneAndUpdate(
