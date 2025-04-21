@@ -1,5 +1,7 @@
-const AddEstimation = () => {
-    return <h1>Add Estimation</h1>
+function AddEstimation() {
+    return (
+        <h1>Add Estimation</h1>
+    );
 }
 
-export default AddEstimation();
+export default AddEstimation;
