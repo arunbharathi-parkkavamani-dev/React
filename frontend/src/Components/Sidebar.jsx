@@ -8,6 +8,7 @@ import * as GiIcons from 'react-icons/gi';
 import * as AiIcons from 'react-icons/ai';
 import * as HiIcons from 'react-icons/hi';
 import * as BiIcons from 'react-icons/bi';
+import * as RiIcons from 'react-icons/ri';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Static/Sidebar.css';
@@ -21,6 +22,7 @@ const iconPackMap = {
   'react-icons/ai': AiIcons,
   'react-icons/hi': HiIcons,
   'react-icons/bi': BiIcons,
+  'react-icons/ri': RiIcons,
 };
 
 const Sidebar = ({ expanded, setExpanded }) => {
@@ -72,13 +74,13 @@ const Sidebar = ({ expanded, setExpanded }) => {
         style={{ width: expanded ? '250px' : '85px', transition: 'width 0.3s' }}>
         <div className="d-flex align-items-center mb-3">
           <button
-            className={`btn btn-outline-light me-3 d-flex align-items-center mb-3 ${expanded ? '' : 'justify-content-center'}`}
+            className={`btn btn-outline-light ms-3 d-flex align-items-center mt-3 ${expanded ? 'me-3' : 'justify-content-center '}`}
             onClick={toggleSidebar}
-            style={{ padding: '8px 8px' }}
           >
-            <GiHamburgerMenu size={expanded ? 15 : 25} title="Menu" />
+            <GiHamburgerMenu size={expanded ? 15 : 20} title="Menu" />
           </button>
-          {expanded && <h1 className="text-white fs-5 mb-0">Sidebar</h1>}
+
+          {expanded && <h1 className="text-white fs-5 mt-4">Sidebar</h1>}
         </div>
 
         {sidebarData.length > 0 ? (
@@ -87,14 +89,15 @@ const Sidebar = ({ expanded, setExpanded }) => {
             <div className={`gap-2 d-flex align-items-center mb-3 ${expanded ? '' : 'justify-content-center'}`}>
               <FaSearch
                 size={expanded ? 20 : 30}
-                className="me-2"
+                className="ms-2"
                 onClick={toggleSidebar}
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: 'pointer', color: 'white' }}
+                title="Search"
               />
               {expanded && (
                 <input
                   type="search"
-                  className="form-control form-control-sm"
+                  className="form-control form-control-sm me-1"
                   placeholder="Search..."
                   value={searchTerm}
                   onChange={e => setSearchTerm(e.target.value)}
@@ -152,10 +155,12 @@ const Sidebar = ({ expanded, setExpanded }) => {
                         {item.sublabels.map((sub, i) => (
                           <li key={sub._id || i} className="list-group-item py-1 px-2">
                             <Link to={`/admin${sub.path}`} className="nav-link d-flex align-items-center">
+                              <FaIcons.FaRegCircle size={10} style={{ color: 'white' }} className="me-2" />
                               {sub.name}
                             </Link>
                           </li>
                         ))}
+
                       </ul>
                     )}
 
