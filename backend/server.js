@@ -4,9 +4,11 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import cron from 'node-cron';
+import { updateGoldRateFromAPI } from './controllers/metalRateController.js';
 
 import sidebarRoutes from './routes/sidebarRoutes.js';
 import metalRateRoutes from './routes/metalRateRoutes.js';
+import metalListRoutes from './routes/metalListRoutes.js';
 
 dotenv.config();
 
@@ -21,6 +23,7 @@ mongoose.connect(process.env.MONGO_URI)
 
 app.use('/api/sidebar', sidebarRoutes);
 app.use('/api/metalRates', metalRateRoutes);
+app.use('/api/metalList', metalListRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, '0.0.0.0', () => {
