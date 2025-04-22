@@ -3,6 +3,7 @@ import { IoNotifications } from 'react-icons/io5';
 import { FaUserCircle } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Static/TopNavbar.css'
+import UserDropdown from './UserProfile';
 
 const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
@@ -64,10 +65,7 @@ const TopNavbar = () => {
             </b>
           </button>
 
-          <span className="d-flex align-items-center gap-1">
-            <FaUserCircle size={24} title="Profile" />
-            LMXETAIL
-          </span>
+          <UserDropdown />
         </div>
       </nav>
     </>

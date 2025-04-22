@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Layouts from './Components/Layouts';
-import Login from './pages/Login'; // or wherever your Login component is
-import Dashboard from './pages/Dashboard';
-import MetalList from './pages/MetalList';
+import Login from './Components/Login'; // or wherever your Login component is
 import { Helmet } from 'react-helmet';
+import axios from 'axios';
 
 // Dynamically set page title
 const getPageTitle = (pathname) => {
@@ -34,7 +33,7 @@ const AppRoutes = ({ expanded, setExpanded }) => {
   const isLoginPage = location.pathname === '/login';
 
   if (location.pathname === '/') {
-    return <Navigate to="/admin/dashboard" replace />;
+    return <Navigate to="/login" replace />;
   }
 
   return (
@@ -53,6 +52,8 @@ const AppRoutes = ({ expanded, setExpanded }) => {
 
 function App() {
   const [expanded, setExpanded] = useState(false);
+  axios.defaults.withCredentials = true;
+
 
   return (
     <Router>

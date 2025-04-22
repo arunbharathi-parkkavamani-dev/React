@@ -4,8 +4,9 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import cron from 'node-cron';
-import { updateGoldRateFromAPI } from './controllers/metalRateController.js';
 
+import session from 'express-session';
+import { updateGoldRateFromAPI } from './controllers/metalRateController.js';
 import sidebarRoutes from './routes/sidebarRoutes.js';
 import metalRateRoutes from './routes/metalRateRoutes.js';
 import metalListRoutes from './routes/metalListRoutes.js';
@@ -13,7 +14,18 @@ import metalListRoutes from './routes/metalListRoutes.js';
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'http://172.24.240.1:5173', // or your frontend URL
+  credentials: true
+}));
+app.use(express.json());
+
+app.use(session({
+  secret: 'your-session-secret',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false } // use true if you enable HTTPS
+}));
 app.use(express.json());
 
 
