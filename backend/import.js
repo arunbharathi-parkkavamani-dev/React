@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import Sidenavbar from './models/Sidenavbar.js';
 import MetalRates from './models/MetalRates.js';
+import MetalList from './models/MetalList.js';
 
 dotenv.config();
 
@@ -16,6 +17,33 @@ const importNavbar = async () => {
   await Sidenavbar.insertMany(sidebarItems);
   console.log('✅ Sidebar data imported');
 };
+
+
+const importMetalList = async () => {
+  try {
+    const metalListPath = path.resolve('metalList.json');
+
+    if (!fs.existsSync(metalListPath)) {
+      console.log('⚠️  No metalList.json found. Skipping metal list import.');
+      return;
+    }
+
+    const metalListData = JSON.parse(fs.readFileSync(metalListPath, 'utf-8'));
+
+    if (!Array.isArray(metalListData) || metalListData.length === 0) {
+      console.log('⚠️  metalList.json is empty or invalid.');
+      return;
+    }
+
+    await MetalList.deleteMany();
+    await MetalList.insertMany(metalListData);
+
+    console.log('✅ Metal list data imported successfully!');
+  } catch (error) {
+    console.error('❌ Failed to import metal list:', error);
+  }
+};
+
 
 const importMetalRates = async () => {
   const metalRatesPath = path.resolve('metalrates.json');
@@ -40,6 +68,7 @@ const importData = async () => {
 
     await importNavbar();
     await importMetalRates(); // Optional import if metalrates.json exists
+    await importMetalList();
 
     console.log('✅ All data imported successfully');
     process.exit();

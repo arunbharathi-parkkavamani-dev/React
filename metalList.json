@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Gold (24K)",
+        "shortCode": "AUX",
+        "taxGroup":"GST 3%",
+        "status": "active"
+    },
+    {
+        "name": "Gold (22K)",
+        "shortCode": "AUX",
+        "taxGroup":"GST 3%",
+        "status": "active"
+    },
+    {
+        "name": "Gold (18K)",
+        "shortCode": "AUX",
+        "taxGroup":"GST 3%",
+        "status": "active"
+    },
+    {
+        "name": "Silver",
+        "shortCode": "AUX",
+        "taxGroup":"GST 3%",
+        "status": "active"
+    },
+    {
+        "name": "Platinum",
+        "shortCode": "AUX",
+        "taxGroup":"GST 3%",
+        "status": "active"
+    }
+]
