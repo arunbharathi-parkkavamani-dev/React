@@ -5,6 +5,7 @@ import path from 'path';
 import Sidenavbar from './models/Sidenavbar.js';
 import MetalRates from './models/MetalRates.js';
 import MetalList from './models/MetalList.js';
+import UsersList from './models/userList.js';
 
 dotenv.config();
 
@@ -58,6 +59,19 @@ const importMetalRates = async () => {
   console.log('✅ Metal rates data imported');
 };
 
+const importUsersList = async () => {
+  const usersListPath = path.resolve('users.json');
+  if (!fs.existsSync(usersListPath)) {
+    console.log('⚠️  No usersList.json found. Skipping users list import.');
+    return;
+  }
+
+  const usersData = JSON.parse(fs.readFileSync(usersListPath));
+  await UsersList.deleteMany();
+  await UsersList.insertMany(usersData);
+  console.log('✅ Users list data imported');
+}
+
 const importData = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI, {
@@ -69,6 +83,7 @@ const importData = async () => {
     await importNavbar();
     await importMetalRates(); // Optional import if metalrates.json exists
     await importMetalList();
+    await importUsersList(); // Optional import if usersList.json exists
 
     console.log('✅ All data imported successfully');
     process.exit();

@@ -1,9 +1,26 @@
 [
     {
-        "id": 1,
-        "name": "admin",
-        "email": "",
+        "firstName":"admin",
+        "lastName":"admin",
+        "dateOfBirth":"",
+        "age":"",
+        "employeeID":"",
+        "department":"admin",
+        "designation":"developer",
+        "active":"true",
+        "address1":"Logimax",
+        "address2":"",
+        "address3":"",
+        "city":"Coimbatore",
+        "state":"Tamil Nadu",
+        "country":"India",
+        "pincode":"641001",
+        "phone":"1234567890",
+        "email":"",
+        "username":"admin",
         "password":"admin@123",
-        "role": "superAdmin"
+        "userType":"admin",
+        "branchPermission":"All",
+        "profileImage":""
     }
 ]
