@@ -78,8 +78,8 @@ const Layout = ({ expanded, setExpanded }) => {
     const location = useLocation();
     const element = useRoutes(routes);
     const pageTitle = getPageTitle(location.pathname);
-    if (location.pathname === '/erp/admin') {
-        return <Navigate to="/erp/admin/Dashboard" replace />
+    if (location.pathname === '/erp') {
+        return <Navigate to="/login" replace />
     }
 
     return (

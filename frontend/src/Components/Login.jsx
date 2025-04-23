@@ -8,19 +8,32 @@ import {
     Box,
     Paper,
 } from '@mui/material';
+import axios from 'axios';
+
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
 
-        if (username === 'admin' && password === 'admin@123') {
+        try {
+            const response = await axios.post(`{${baseUrl}}/users/login`, {
+                username,
+                password,
+            }, {
+                withCredentials: true // Important for cookies/session
+            });
+
+            alert('Login successful');
             navigate('/admin/Dashboard');
-        } else {
-            alert('Login failed. Please check your credentials.');
+            console.log(response)
+        } catch (err) {
+            console.error(err);
+            alert(err.response?.data?.error || 'Login failed');
         }
     };
 
