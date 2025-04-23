@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { IoNotifications } from 'react-icons/io5';
-import { FaUserCircle } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Static/TopNavbar.css'
 import UserDropdown from './UserProfile';

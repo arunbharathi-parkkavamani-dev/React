@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"npm run server\" \"vite --host\"",
+    "dev": "concurrently \"npm run server\" \"vite --host localhost\"",
     "server": "nodemon backend/server.js",
     "build": "vite build",
     "lint": "eslint .",

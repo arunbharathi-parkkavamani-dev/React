@@ -5,7 +5,7 @@ export const getAllMetalRates = async (req, res) => {
         const metalRates = await MetalRates.find();
         res.json(metalRates);
     } catch (err) {
-        res.status(500).json({ error: 'Failed to fetch metal rates' });
+        res.status(500).json({ error: 'Failed to fetch metal rates', err });
     }
 };
 
@@ -14,7 +14,7 @@ export const getMetalRateById = async (req, res) => {
         const metalRate = await MetalRates.findById(req.params.id);
         res.json(metalRate);
     } catch (err) {
-        res.status(500).json({ error: 'Failed to fetch metal rate' });
+        res.status(500).json({ error: 'Failed to fetch metal rate', err });
     }
 };
 
@@ -24,7 +24,7 @@ export const createMetalRate = async (req, res) => {
         await newRate.save();
         res.status(201).json({ message: 'Metal rate added successfully!' });
     } catch (err) {
-        res.status(500).json({ error: 'Failed to save metal rate' });
+        res.status(500).json({ error: 'Failed to save metal rate', err });
     }
 };
 
@@ -37,7 +37,7 @@ export const updateMetalRate = async (req, res) => {
         if (!updatedRate) return res.status(404).json({ error: 'Metal rate not found' });
         res.json({ message: 'Updated successfully', data: updatedRate });
     } catch (err) {
-        res.status(500).json({ error: 'Failed to update metal rate' });
+        res.status(500).json({ error: 'Failed to update metal rate', err });
     }
 };
 
@@ -47,7 +47,7 @@ export const deleteMetalRate = async (req, res) => {
         if (!deleted) return res.status(404).json({ error: 'Metal rate not found' });
         res.json({ message: 'Deleted successfully' });
     } catch (err) {
-        res.status(500).json({ error: 'Failed to delete metal rate' });
+        res.status(500).json({ error: 'Failed to delete metal rate', err });
     }
 };
 

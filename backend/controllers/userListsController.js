@@ -55,13 +55,15 @@ export const DeleteUserList = async (req, res) => {
 
 export const Login = async (req, res) => {
     try {
-        const { username, password } = req.body;
+        const { username, password, branchPermission } = req.body;
         const user = await UsersList.findOne({ username });
         if (!user) return res.status(404).json({ error: 'User Not Found' })
         if (password !== user.password) return res.status(404).json({ error: 'Invalid Passord' });
+        if (branchPermission !== user.branchPermission) return res.status(403).json({ error: 'Invalid Branch' });
         req.session.userId = user._id;
         req.session.name = user.firstName;
-        res.json({ message: 'Logged In' });
+        res.json({ message: 'Logged In', firstName: user.firstName });
+        console.log('firstName:', user.firstName);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
@@ -79,8 +81,18 @@ export const Logout = async (req, res) => {
 };
 
 export const getCurrentUser = async (req, res) => {
-    if (!req.session.userId) return res.status(401).json({ error: 'Login first' });
-    const user = await UsersList.findById(req.session.userId).select('-password');
-    res.json(user);
+    if (!req.session.name || !req.session.userId) {
+        return res.status(401).json({ error: 'Login first' });
+    }
+
+    try {
+        const user = await UsersList.findById(req.session.userId).select('-password');
+        if (!user) return res.status(404).json({ error: 'User not found' });
+
+        res.json(user);
+    } catch (err) {
+        console.error('Error in getCurrentUser:', err);
+        res.status(500).json({ error: 'Server error' });
+    }
 };
 

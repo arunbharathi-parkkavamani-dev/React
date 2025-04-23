@@ -4,6 +4,7 @@ import { Button, Menu, MenuItem, Avatar } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 const UserDropdown = () => {
+    const firstName = localStorage.getItem('firstName') || 'User';
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const navigate = useNavigate();
@@ -22,21 +23,23 @@ const UserDropdown = () => {
         console.log("Edit Profile clicked");
     };
 
-    const handleSignOut = () => {
-        handleClose();
+    const handleSignOut = async () => {
+        try {
+            const res = await fetch('http://localhost:5000/api/users/logout', {
+                method: 'POST',
+                credentials: 'include', // Important to send the session cookie
+            });
 
-        // Clear all cookies (basic way)
-        document.cookie.split(";").forEach(cookie => {
-            const [name] = cookie.split("=");
-            document.cookie = `${name}=; Max-Age=0; path=/;`;
-        });
-
-        // You could also clear localStorage/sessionStorage if needed
-        localStorage.clear();
-        sessionStorage.clear();
-
-        // Redirect to login (home) without hardcoding domain
-        navigate('/');
+            if (res.ok) {
+                console.log('✅ Logout successful');
+                navigate('/login'); // Or your desired redirect
+            } else {
+                const errData = await res.json();
+                console.error('❌ Logout failed:', errData);
+            }
+        } catch (err) {
+            console.error('❌ Error during logout:', err);
+        }
     };
 
     return (
@@ -46,7 +49,7 @@ const UserDropdown = () => {
                 sx={{ color: 'inherit', textTransform: 'none' }}
                 startIcon={<FaUserCircle size={24} />}
             >
-                LMXETAIL
+                {firstName}
             </Button>
 
             <Menu
@@ -57,7 +60,7 @@ const UserDropdown = () => {
             >
                 <MenuItem disabled>
                     <Avatar sx={{ width: 24, height: 24, mr: 1 }} />
-                    LMXETAIL
+                    {firstName}
                 </MenuItem>
                 <MenuItem onClick={handleEditProfile}>Edit Profile</MenuItem>
                 <MenuItem onClick={handleSignOut}>Sign Out</MenuItem>

@@ -7,6 +7,10 @@ import {
     Typography,
     Box,
     Paper,
+    FormControl,
+    InputLabel,
+    Select,
+    MenuItem,
 } from '@mui/material';
 import axios from 'axios';
 
@@ -15,22 +19,32 @@ const baseUrl = import.meta.env.VITE_API_BASE_URL;
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [branch, setBranch] = useState('All');
     const navigate = useNavigate();
+    const branchOptions = ['All', 'Coimbatore'];
 
     const handleLogin = async (e) => {
         e.preventDefault();
 
         try {
-            const response = await axios.post(`{${baseUrl}}/users/login`, {
-                username,
-                password,
-            }, {
-                withCredentials: true // Important for cookies/session
-            });
+            const response = await axios.post(
+                `${baseUrl}/users/login`,
+                {
+                    username,
+                    password,
+                    branchPermission: branch,
+                },
+                {
+                    withCredentials: true,
+                }
+            );
 
             alert('Login successful');
-            navigate('/admin/Dashboard');
-            console.log(response)
+            const firstName = response.data.firstName
+            const formattedName = firstName.charAt(0).toUpperCase() + firstName.slice(1).toLowerCase();
+            localStorage.setItem('firstName', formattedName);
+            navigate(`/users/admin/Dashboard`);
+            console.log(response);
         } catch (err) {
             console.error(err);
             alert(err.response?.data?.error || 'Login failed');
@@ -63,6 +77,20 @@ const Login = () => {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
+                    <FormControl fullWidth margin="normal">
+                        <InputLabel>Branch</InputLabel>
+                        <Select
+                            value={branch}
+                            label="Branch"
+                            onChange={(e) => setBranch(e.target.value)}
+                        >
+                            {branchOptions.map((option) => (
+                                <MenuItem key={option} value={option}>
+                                    {option}
+                                </MenuItem>
+                            ))}
+                        </Select>
+                    </FormControl>
                     <Button
                         type="submit"
                         variant="contained"

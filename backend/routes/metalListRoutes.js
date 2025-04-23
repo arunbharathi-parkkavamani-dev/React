@@ -10,9 +10,9 @@ import {
 const router = express.Router();
 
 router.get('/', getAllMetalLists);
-router.get('/', getMetalListByID);
-router.get('/', createMetalList);
-router.get('/', updateMetalList);
-router.get('/', deleteMetalList);
+router.get('/:id', getMetalListByID);
+router.post('/', createMetalList);
+router.put('/:id', updateMetalList);
+router.delete('/:id', deleteMetalList);
 
 export default router
