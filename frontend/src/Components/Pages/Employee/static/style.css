@@ -1,0 +1,8 @@
+.basicInformation input,
+.basicInformation .MuiTextField-root,
+.officialInformation input,
+.officialInformation .MuiTextField-root {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+}

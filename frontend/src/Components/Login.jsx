@@ -39,7 +39,6 @@ const Login = () => {
                 }
             );
 
-            alert('Login successful');
             const firstName = response.data.firstName
             const formattedName = firstName.charAt(0).toUpperCase() + firstName.slice(1).toLowerCase();
             localStorage.setItem('firstName', formattedName);
@@ -77,6 +76,9 @@ const Login = () => {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
+                    <Typography variant="h6" gutterBottom>
+                        Select Branch
+                    </Typography>
                     <FormControl fullWidth margin="normal">
                         <InputLabel>Branch</InputLabel>
                         <Select

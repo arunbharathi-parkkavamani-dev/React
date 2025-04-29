@@ -1,14 +1,19 @@
-import { Suspense } from 'react';
+import React, { Suspense, useState, useEffect } from 'react';
 import { useRoutes, useLocation, Navigate } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import TopNavbar from './TopNavbar';
 import BreadcrumbsNav from './BreadcrumbsNav';
 import Footer from './Footer';
 import UpdateMetalRate from './Pages/MetalRates/UpdateMatelRate';
+import { Snackbar } from '@mui/material';
+import MuiAlert from '@mui/material/Alert';
 
 const pages = import.meta.glob('./Pages/**/*.jsx', { eager: true });
 
 console.log(pages);  // Check if this logs the pages object correctly
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 
 const kebabCase = (str) =>
@@ -78,9 +83,15 @@ const Layout = ({ expanded, setExpanded }) => {
     const location = useLocation();
     const element = useRoutes(routes);
     const pageTitle = getPageTitle(location.pathname);
-    if (location.pathname === '/erp') {
-        return <Navigate to="/login" replace />
-    }
+    const [snackbarOpen, setSnackbarOpen] = useState(false)
+    const firstName = localStorage.getItem('firstName') || 'User';
+
+
+    // Inside Layout component
+    useEffect(() => {
+        setSnackbarOpen(true);
+    }, []);
+
 
     return (
         <>
@@ -91,6 +102,16 @@ const Layout = ({ expanded, setExpanded }) => {
                     <h1 className="text-dark fs-5 mx-3">{pageTitle}</h1>
                     <BreadcrumbsNav />
                     {element}
+                    <Snackbar
+                        open={snackbarOpen}
+                        autoHideDuration={3000}
+                        onClose={() => setSnackbarOpen(false)}
+                        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+                    >
+                        <Alert onClose={() => setSnackbarOpen(false)} severity="success" sx={{ width: '100%' }}>
+                            Welcome..!, {firstName}
+                        </Alert>
+                    </Snackbar>
                 </div>
             </div>
             <Footer />

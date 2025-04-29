@@ -1520,97 +1520,97 @@
       "sublabels": [
         {
           "name": "Sales Abstract GST",
-          "path": "Sales-Abstract-GST",
+          "path": "/Sales-Abstract-GST",
           "role": null
         },
         {
           "name": "Schema Wise Openning & Closing",
-          "path": "Schema-Wise-Opening-And-Closing",
+          "path": "/Schema-Wise-Opening-And-Closing",
           "role": null
         },
         {
           "name": "Sales Return Abstract",
-          "path": "Sales-Return-Abstract",
+          "path": "/Sales-Return-Abstract",
           "role": null
         },
         {
           "name": "Card Collection Report",
-          "path": "Card-Collection-Report",
+          "path": "/Card-Collection-Report",
           "role": null
         },
         {
           "name": "Cheque Collection Report",
-          "path": "Cheque-Collection-Report",
+          "path": "/Cheque-Collection-Report",
           "role": null
         },
         {
           "name": "Net Banking Collection Report",
-          "path": "Net-Banking-Collection-Report",
+          "path": "/Net-Banking-Collection-Report",
           "role": null
         },
         {
           "name": "Advance Receipt & Utilized Report",
-          "path": "Advance-Receipt-And-Utilized-Report",
+          "path": "/Advance-Receipt-And-Utilized-Report",
           "role": null
         },
         {
           "name": "Day Transaction",
-          "path": "Day-Transaction",
+          "path": "/Day-Transaction",
           "role": null
         },
         {
           "name": "Category Wise BT Report",
-          "path": "Category-Wise-BT-Report",
+          "path": "/Category-Wise-BT-Report",
           "role": null
         },
         {
           "name": "Category Wise Stock Report",
-          "path": "Category-Wise-Stock-Report",
+          "path": "/Category-Wise-Stock-Report",
           "role": null
         },
         {
           "name": "GST R1 Sales Report",
-          "path": "GST-R1-Sales-Report",
+          "path": "/GST-R1-Sales-Report",
           "role": null
         },
         {
           "name": "Book Stock",
-          "path": "Book-Stock",
+          "path": "/Book-Stock",
           "role": null
         },
         {
           "name": "GST R2 Purchase Report",
-          "path": "GST-R2-Purchase-Report",
+          "path": "/GST-R2-Purchase-Report",
           "role": null
         },
         {
           "name": "EDA Item Wise Report",
-          "path": "EDA-Item-Wise-Report",
+          "path": "/EDA-Item-Wise-Report",
           "role": null
         },
         {
           "name": "EDA Purchase Report",
-          "path": "EDA-Purchase-Report",
+          "path": "/EDA-Purchase-Report",
           "role": null
         },
         {
           "name": "EDA Partly Sold Report",
-          "path": "EDA-Partly-Sold-Report",
+          "path": "/EDA-Partly-Sold-Report",
           "role": null
         },
         {
           "name": "HSN Code Sales Abstract",
-          "path": "HSN-Code-Sales-Abstract",
+          "path": "/HSN-Code-Sales-Abstract",
           "role": null
         },
         {
           "name": "Receipt Ledger",
-          "path": "Receipt-Ledger",
+          "path": "/Receipt-Ledger",
           "role": null
         },
         {
           "name": "Category Wise Day Transaction",
-          "path": "Category-Wise-Day-Transaction",
+          "path": "/Category-Wise-Day-Transaction",
           "role": null
         }
       ]
@@ -1624,42 +1624,42 @@
       "sublabels": [
         {
           "name": "Inventory Category",
-          "path": "Inventory-Category",
+          "path": "/Inventory-Category",
           "role": null
         },
         {
           "name": "Packaging Item Size",
-          "path": "Packaging-Item-Size",
+          "path": "/Packaging-Item-Size",
           "role": null
         },
         {
           "name": "Inventory Type",
-          "path": "Inventory-Type",
+          "path": "/Inventory-Type",
           "role": null
         },
         {
           "name": "Product Mapping",
-          "path": "Product-Mapping",
+          "path": "/Product-Mapping",
           "role": null
         },
         {
           "name": "Purchase Entry",
-          "path": "Purchase-Entry",
+          "path": "/Purchase-Entry",
           "role": null
         },
         {
           "name": "Packaging Entry",
-          "path": "Packaging-Entry",
+          "path": "/Packaging-Entry",
           "role": null
         },
         {
           "name": "Packaging Item Issue",
-          "path": "Packaging-Item-Issue",
+          "path": "/Packaging-Item-Issue",
           "role": null
         },
         {
           "name": "Tagging",
-          "path": "Tagging",
+          "path": "/Tagging",
           "role": null
         }
       ]
@@ -1673,17 +1673,17 @@
       "sublabels": [
         {
           "name": "Stock In & Out Report",
-          "path": "Stock-In-And-Out-Report",
+          "path": "/Stock-In-And-Out-Report",
           "role": null
         },
         {
           "name": "Available Stock Item Wise",
-          "path": "Available-Stock-Item-Wise",
+          "path": "/Available-Stock-Item-Wise",
           "role": null
         },
         {
           "name": "Reorder Report",
-          "path": "Reorder-Report",
+          "path": "/Reorder-Report",
           "role": null
         }
       ]
@@ -1697,112 +1697,112 @@
       "sublabels": [
         {
           "name": "Scheme",
-          "path": "Scheme",
+          "path": "/Scheme",
           "role": null
         },
         {
           "name": "Scheme Group",
-          "path": "Scheme-Group",
+          "path": "/Scheme-Group",
           "role": null
         },
         {
           "name": "Customer",
-          "path": "Customer",
+          "path": "/Customer",
           "role": null
         },
         {
           "name": "Employee",
-          "path": "Employee",
+          "path": "/Employee",
           "role": null
         },
         {
           "name": "Customer Profile",
-          "path": "Customer-Profile",
+          "path": "/Customer-Profile",
           "role": null
         },
         {
           "name": "Department",
-          "path": "Department",
+          "path": "/Department",
           "role": null
         },
         {
           "name": "Upload Apk",
-          "path": "Upload-Apk",
+          "path": "/Upload-Apk",
           "role": null
         },
         {
           "name": "Designation",
-          "path": "Designation",
+          "path": "/Designation",
           "role": null
         },
         {
           "name": "Profession",
-          "path": "Profession",
+          "path": "/Profession",
           "role": null
         },
         {
           "name": "Bank",
-          "path": "Bank",
+          "path": "/Bank",
           "role": null
         },
         {
           "name": "Payment Mode",
-          "path": "Payment-Mode",
+          "path": "/Payment-Mode",
           "role": null
         },
         {
           "name": "Drawee Account",
-          "path": "Drawee-Account",
+          "path": "/Drawee-Account",
           "role": null
         },
         {
           "name": "Weight",
-          "path": "Weight",
+          "path": "/Weight",
           "role": null
         },
         {
           "name": "Scheme Classification",
-          "path": "Scheme-Classification",
+          "path": "/Scheme-Classification",
           "role": null
         },
         {
           "name": "Wallet Plan",
-          "path": "Wallet-Plan",
+          "path": "/Wallet-Plan",
           "role": null
         },
         {
           "name": "Branch",
-          "path": "Branch",
+          "path": "/Branch",
           "role": null
         },
         {
           "name": "Wallet Category",
-          "path": "Wallet-Category",
+          "path": "/Wallet-Category",
           "role": null
         },
         {
           "name": "Wallet Category Settings",
-          "path": "Wallet-Category-Settings",
+          "path": "/Wallet-Category-Settings",
           "role": null
         },
         {
           "name": "Villages / Zone Allocation",
-          "path": "Villages-Or-Zone-Allocation",
+          "path": "/Villages-Or-Zone-Allocation",
           "role": null
         },
         {
           "name": "Zones",
-          "path": "Zones",
+          "path": "/Zones",
           "role": null
         },
         {
           "name": "Web Registered Devices",
-          "path": "Web-Registered-Devices",
+          "path": "/Web-Registered-Devices",
           "role": null
         },
         {
           "name": "Gift",
-          "path": "Gift",
+          "path": "/Gift",
           "role": null
         }
       ]
@@ -1816,27 +1816,27 @@
       "sublabels": [
         {
           "name": "Scheme Payment",
-          "path": "Scheme-Payment",
+          "path": "/Scheme-Payment",
           "role": null
         },
         {
           "name": "Post Dated Payment",
-          "path": "Post-Dated-Payment",
+          "path": "/Post-Dated-Payment",
           "role": null
         },
         {
           "name": "Verify Payment",
-          "path": "Verify-Payment",
+          "path": "/Verify-Payment",
           "role": null
         },
         {
           "name": "Payment Approval",
-          "path": "Payment-Approval",
+          "path": "/Payment-Approval",
           "role": null
         },
         {
           "name": "Sync Gateway Settlement",
-          "path": "Sync-Gateway-Settlement",
+          "path": "/Sync-Gateway-Settlement",
           "role": null
         }
       ]
@@ -1850,37 +1850,37 @@
       "sublabels": [
         {
           "name": "Manage Account",
-          "path": "Manage-Account",
+          "path": "/Manage-Account",
           "role": null
         },
         {
           "name": "Create Account",
-          "path": "Create-Account",
+          "path": "/Create-Account",
           "role": null
         },
         {
           "name": "Closed Account",
-          "path": "Closed-Account",
+          "path": "/Closed-Account",
           "role": null
         },
         {
           "name": "Account Approval",
-          "path": "Account-Approval",
+          "path": "/Account-Approval",
           "role": null
         },
         {
           "name": "Passbook",
-          "path": "Passbook",
+          "path": "/Passbook",
           "role": null
         },
         {
           "name": "Manage Account List",
-          "path": "Manage-Account-List",
+          "path": "/Manage-Account-List",
           "role": null
         },
         {
           "name": "Customer Scheme Enquiry",
-          "path": "Customer-Scheme-Enquiry",
+          "path": "/Customer-Scheme-Enquiry",
           "role": null
         }
       ]
@@ -1894,12 +1894,12 @@
       "sublabels": [
         {
           "name": "Pre Settlement",
-          "path": "Pre-Settlement",
+          "path": "/Pre-Settlement",
           "role": null
         },
         {
           "name": "Post Settlement",
-          "path": "Post-Settlement",
+          "path": "/Post-Settlement",
           "role": null
         }
       ]
@@ -1913,12 +1913,12 @@
       "sublabels": [
         {
           "name": "Category List",
-          "path": "Category-List",
+          "path": "/Category-List",
           "role": null
         },
         {
           "name": "Product",
-          "path": "Product",
+          "path": "/Product",
           "role": null
         }
       ]
@@ -1932,17 +1932,17 @@
       "sublabels": [
         {
           "name": "Offers",
-          "path": "Offers",
+          "path": "/Offers",
           "role": null
         },
         {
           "name": "New Arrivals",
-          "path": "New-Arrivals",
+          "path": "/New-Arrivals",
           "role": null
         },
         {
           "name": "Send Notification",
-          "path": "Send-Notification",
+          "path": "/Send-Notification",
           "role": null
         }
       ]
@@ -1956,27 +1956,27 @@
       "sublabels": [
         {
           "name": "Agent",
-          "path": "Agent",
+          "path": "/Agent",
           "role": null
         },
         {
           "name": "Agent Referral Report",
-          "path": "Agent-Referral-Report",
+          "path": "/Agent-Referral-Report",
           "role": null
         },
         {
           "name": "Agent Settlement",
-          "path": "Agent-Settlement",
+          "path": "/Agent-Settlement",
           "role": null
         },
         {
           "name": "Summary",
-          "path": "Summary",
+          "path": "/Summary",
           "role": null
         },
         {
           "name": "Agent KYC",
-          "path": "Agent-KYC",
+          "path": "/Agent-KYC",
           "role": null
         }
       ]
@@ -1990,17 +1990,17 @@
       "sublabels": [
         {
           "name": "Quick  SMS",
-          "path": "Quick-SMS",
+          "path": "/Quick-SMS",
           "role": null
         },
         {
           "name": "Group SMS",
-          "path": "Group-SMS",
+          "path": "/Group-SMS",
           "role": null
         },
         {
           "name": "SMS Delivery Report",
-          "path": "SMS-Delivery-Report",
+          "path": "/SMS-Delivery-Report",
           "role": null
         }
       ]
@@ -2014,12 +2014,12 @@
       "sublabels": [
         {
           "name": "Email",
-          "path": "Email",
+          "path": "/Email",
           "role": null
         },
         {
           "name": "Group Email",
-          "path": "Group-Email",
+          "path": "/Group-Email",
           "role": null
         }
       ]
@@ -2033,137 +2033,137 @@
       "sublabels": [
         {
           "name": "Scheme A/c Ledger - Old",
-          "path": "Scheme-Account-Ledger-Old",
+          "path": "/Scheme-Account-Ledger-Old",
           "role": null
         },
         {
           "name": "Source wise Report",
-          "path": "Source-wise-Report",
+          "path": "/Source-wise-Report",
           "role": null
         },
         {
           "name": "Mode-wise Pay Summary",
-          "path": "Mode-wise-Pay-Summary",
+          "path": "/Mode-wise-Pay-Summary",
           "role": null
         },
         {
           "name": "Collection - Employee wise",
-          "path": "Collection-Employee-wise",
+          "path": "/Collection-Employee-wise",
           "role": null
         },
         {
           "name": "Collection - Online Payments",
-          "path": "Collection-Online-Payments",
+          "path": "/Collection-Online-Payments",
           "role": null
         },
         {
           "name": "Chit Old Metal Report",
-          "path": "Chit-Old-Metal-Report",
+          "path": "/Chit-Old-Metal-Report",
           "role": null
         },
         {
           "name": "Collection - Online /Offline Mode Wise",
-          "path": "Collection-Online-Offline-Mode-Wise",
+          "path": "/Collection-Online-Offline-Mode-Wise",
           "role": null
         },
         {
           "name": "Scheme Wise Mode Wise Report",
-          "path": "Scheme-Wise-Mode-Wise-Report",
+          "path": "/Scheme-Wise-Mode-Wise-Report",
           "role": null
         },
         {
           "name": "Gift Report",
-          "path": "Gift-Report",
+          "path": "/Gift-Report",
           "role": null
         },
         {
           "name": "Renewal/Live Report",
-          "path": "Renewal-Live-Report",
+          "path": "/Renewal-Live-Report",
           "role": null
         },
         {
           "name": "Customer Unpaid Report",
-          "path": "Customer-Unpaid-Report",
+          "path": "/Customer-Unpaid-Report",
           "role": null
         },
         {
           "name": "Birth Day/Wedding Day",
-          "path": "Birth-Day-Wedding-Day",
+          "path": "/Birth-Day-Wedding-Day",
           "role": null
         },
         {
           "name": "Member Report",
-          "path": "Member-Report",
+          "path": "/Member-Report",
           "role": null
         },
         {
           "name": "Maturity Report",
-          "path": "Maturity-Report",
+          "path": "/Maturity-Report",
           "role": null
         },
         {
           "name": "Customer Outstanding Payment Report",
-          "path": "Customer-Outstanding-Payment-Report",
+          "path": "/Customer-Outstanding-Payment-Report",
           "role": null
         },
         {
           "name": "Employee collection Summary",
-          "path": "Employee-collection-Summary",
+          "path": "/Employee-collection-Summary",
           "role": null
         },
         {
           "name": "Update Employee Referral Account",
-          "path": "Update-Employee-Referral-Account",
+          "path": "/Update-Employee-Referral-Account",
           "role": null
         },
         {
           "name": "Wallet Unregistered Customer",
-          "path": "Wallet-Unregistered-Customer",
+          "path": "/Wallet-Unregistered-Customer",
           "role": null
         },
         {
           "name": "Employee wise Sch Accounts Report",
-          "path": "Employee-wise-Sch-Accounts-Report",
+          "path": "/Employee-wise-Sch-Accounts-Report",
           "role": null
         },
         {
           "name": "Closed Account Report",
-          "path": "Closed-Account-Report",
+          "path": "/Closed-Account-Report",
           "role": null
         },
         {
           "name": "Akshaya Thiruthiyai Spl - Report",
-          "path": "Akshaya-Thiruthiyai-Spl-Report",
+          "path": "/Akshaya-Thiruthiyai-Spl-Report",
           "role": null
         },
         {
           "name": "Scheme Wise Pending",
-          "path": "Scheme-Wise-Pending",
+          "path": "/Scheme-Wise-Pending",
           "role": null
         },
         {
           "name": "Payment Cancel Report",
-          "path": "Payment-Cancel-Report",
+          "path": "/Payment-Cancel-Report",
           "role": null
         },
         {
           "name": "Auto Debit Subscription Status Report",
-          "path": "Auto-Debit-Subscription-Status-Report",
+          "path": "/Auto-Debit-Subscription-Status-Report",
           "role": null
         },
         {
           "name": "Chit Analysis Report",
-          "path": "Chit-Analysis-Report",
+          "path": "/Chit-Analysis-Report",
           "role": null
         },
         {
           "name": "Akshaya Thiruthiyai Spl - Report",
-          "path": "Akshaya-Thiruthiyai-Spl-Report",
+          "path": "/Akshaya-Thiruthiyai-Spl-Report",
           "role": null
         },
         {
           "name": "Staff Incentive Report",
-          "path": "Staff-Incentive-Report",
+          "path": "/Staff-Incentive-Report",
           "role": null
         }
       ]

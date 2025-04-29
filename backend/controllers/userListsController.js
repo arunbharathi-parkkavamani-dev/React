@@ -59,7 +59,7 @@ export const Login = async (req, res) => {
         const user = await UsersList.findOne({ username });
         if (!user) return res.status(404).json({ error: 'User Not Found' })
         if (password !== user.password) return res.status(404).json({ error: 'Invalid Passord' });
-        if (branchPermission !== user.branchPermission) return res.status(403).json({ error: 'Invalid Branch' });
+        if (user.branchPermission !== 'All' && branchPermission !== user.branchPermission) return res.status(403).json({ error: 'Invalid Branch' });
         req.session.userId = user._id;
         req.session.name = user.firstName;
         res.json({ message: 'Logged In', firstName: user.firstName });

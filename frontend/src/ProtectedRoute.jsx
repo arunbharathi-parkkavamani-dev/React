@@ -7,6 +7,7 @@ const ProtectedRoute = ({ children }) => {
 
     useEffect(() => {
         axios.get('http://localhost:5000/api/users/me', { withCredentials: true })
+            // eslint-disable-next-line no-unused-vars
             .then(res => setIsAuthenticated(true))
             .catch(() => setIsAuthenticated(false));
     }, []);
