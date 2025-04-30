@@ -15,10 +15,6 @@ import {
     Switch,
     Paper
 } from '@mui/material';
-import { FaL, FaS } from 'react-icons/fa6';
-import { FlatESLint } from 'eslint/use-at-your-own-risk';
-import { flushSync } from 'react-dom';
-import { TbFlagSearch } from 'react-icons/tb';
 
 const departments = ['HR', 'Sales', 'Billing', 'Estimation'];
 
@@ -138,9 +134,9 @@ const AddEmployees = ({ expanded }) => {
                                 {[
                                     ['firstName', 'First Name', false, true],
                                     ['lastName', 'Last Name', false, true],
-                                    ['dateOfBirth', 'Date of Birth', 'date',],
-                                    ['age', 'Age', 'text', true,]
-                                ].map(([name, label, type = 'text', disabled = false, required = false]) => (
+                                    ['dateOfBirth', 'Date of Birth', 'date', false],
+                                    ['age', 'Age', 'text', true, false]
+                                ].map(([name, label, type = 'text', disabled = false], required = true) => (
                                     <Col md={6} className="mb-3" key={name}>
                                         <TextField
                                             label={label}
