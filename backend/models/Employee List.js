@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const usersListSchema = new mongoose.Schema({
+const EmployeesListSchema = new mongoose.Schema({
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
     dateOfBirth: { type: Date },
@@ -26,6 +26,6 @@ const usersListSchema = new mongoose.Schema({
     createdAt: { type: Date, default: Date.now },
 });
 
-const UsersList = mongoose.model("UsersList", usersListSchema);
+const EmployeesList = mongoose.model("UsersList", EmployeesListSchema);
 
-export default UsersList;  
+export default EmployeesList;  
