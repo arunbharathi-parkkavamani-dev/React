@@ -1,8 +1,6 @@
-.basicInformation input,
-.basicInformation .MuiTextField-root,
-.officialInformation input,
-.officialInformation .MuiTextField-root {
-    display: block;
-    margin-bottom: 10px;
-    width: 100%;
+.employee-form {
+    margin-top: 10%;
+    height: 75vh;
+    overflow-y: auto;
+    scrollbar-width: none;
 }

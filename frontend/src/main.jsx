@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-phone-input-2/lib/bootstrap.css';
 import './assets/index.css'
 import App from './App.jsx'
 
