@@ -14,6 +14,9 @@ dotenv.config();
 
 const importNavbar = async () => {
   const jsonPath = path.resolve('navbar.json');
+  if (!fs.existsSync(jsonPath)) {
+    console.log("Side Nav bar Not exists");
+  }
   const rawData = fs.readFileSync(jsonPath);
   const sidebarItems = JSON.parse(rawData);
 
