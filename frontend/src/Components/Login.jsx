@@ -28,7 +28,7 @@ const Login = () => {
 
         try {
             const response = await axios.post(
-                `${baseUrl}/users/login`,
+                `${baseUrl}/employees/login`,
                 {
                     username,
                     password,
@@ -42,7 +42,7 @@ const Login = () => {
             const firstName = response.data.firstName
             const formattedName = firstName.charAt(0).toUpperCase() + firstName.slice(1).toLowerCase();
             localStorage.setItem('firstName', formattedName);
-            navigate(`/users/admin/Dashboard`);
+            navigate(`/employees/admin/Dashboard`);
             console.log(response);
         } catch (err) {
             console.error(err);

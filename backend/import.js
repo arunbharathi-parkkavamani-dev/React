@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import fs from 'fs';
@@ -5,7 +6,9 @@ import path from 'path';
 import Sidenavbar from './models/Sidenavbar.js';
 import MetalRates from './models/MetalRates.js';
 import MetalList from './models/MetalList.js';
-import UsersList from './models/userList.js';
+import EmployeeList from './models/EmployeeList.js';
+import UsersList from './models/UsersList.js';
+
 
 dotenv.config();
 
@@ -72,6 +75,19 @@ const importUsersList = async () => {
   console.log('✅ Users list data imported');
 }
 
+const importEmployeeList = async () => {
+  const EmployeeListPath = path.resolve('Employees.json');
+  if (!fs.existsSync(EmployeeListPath)) {
+    console.log('⚠️  No Employees.json found. Skipping users list import.');
+    return;
+  }
+
+  const EmployeeData = JSON.parse(fs.readFileSync(EmployeeListPath));
+  await EmployeeList.deleteMany();
+  await EmployeeList.insertMany(EmployeeData);
+  console.log('✅ Users list data imported');
+}
+
 const importData = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI, {
@@ -83,7 +99,8 @@ const importData = async () => {
     await importNavbar();
     await importMetalRates(); // Optional import if metalrates.json exists
     await importMetalList();
-    await importUsersList(); // Optional import if usersList.json exists
+    await importUsersList(); // Optional import if users.json exists
+    await importEmployeeList(); // Optional import if Employee.json exists
 
     console.log('✅ All data imported successfully');
     process.exit();

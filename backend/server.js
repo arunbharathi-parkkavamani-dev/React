@@ -11,6 +11,7 @@ import sidebarRoutes from './routes/sidebarRoutes.js';
 import metalRateRoutes from './routes/metalRateRoutes.js';
 import metalListRoutes from './routes/metalListRoutes.js';
 import usersListRoutes from './routes/userListsRoutes.js';
+import EmployeesRoutes from './routes/EmployeeListRoutes.js';
 
 dotenv.config();
 const app = express();
@@ -92,6 +93,13 @@ try {
   console.log('✅ User routes loaded');
 } catch (err) {
   console.error('❌ Failed to load user routes:', err);
+}
+
+try {
+  app.use('/api/employees', EmployeesRoutes);
+  console.log('✅ Employees List loaded');
+} catch (err) {
+  console.error('❌ Failed to load Employees routes:', err);
 }
 
 // Start Server

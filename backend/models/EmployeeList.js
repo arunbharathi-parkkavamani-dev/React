@@ -26,6 +26,6 @@ const EmployeesListSchema = new mongoose.Schema({
     createdAt: { type: Date, default: Date.now },
 });
 
-const EmployeesList = mongoose.model("UsersList", EmployeesListSchema);
+const EmployeesList = mongoose.model("EmployeeList", EmployeesListSchema);
 
 export default EmployeesList;  

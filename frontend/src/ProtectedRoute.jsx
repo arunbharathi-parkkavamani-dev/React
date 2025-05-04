@@ -6,7 +6,7 @@ const ProtectedRoute = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(null); // null means "still loading"
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/users/me', { withCredentials: true })
+        axios.get('http://localhost:5000/api/employees/me', { withCredentials: true })
             // eslint-disable-next-line no-unused-vars
             .then(res => setIsAuthenticated(true))
             .catch(() => setIsAuthenticated(false));

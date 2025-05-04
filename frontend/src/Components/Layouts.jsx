@@ -8,7 +8,7 @@ import UpdateMetalRate from './Pages/MetalRates/UpdateMatelRate';
 import { Snackbar } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
 
-const pages = import.meta.glob('./Pages/**/*.jsx', { eager: true });
+const pages = import.meta.glob('../Pages/**/*.jsx', { eager: true });
 
 console.log(pages);  // Check if this logs the pages object correctly
 const Alert = React.forwardRef(function Alert(props, ref) {
