@@ -1,10 +1,9 @@
 import React, { Suspense, useState, useEffect } from 'react';
-import { useRoutes, useLocation, Navigate } from 'react-router-dom';
+import { useRoutes, useLocation } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import TopNavbar from './TopNavbar';
 import BreadcrumbsNav from './BreadcrumbsNav';
-import Footer from './Footer';
-import UpdateMetalRate from './Pages/MetalRates/UpdateMatelRate';
+import Footer from './Footer'
 import { Snackbar } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
 
