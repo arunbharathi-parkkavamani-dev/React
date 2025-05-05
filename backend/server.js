@@ -12,6 +12,7 @@ import metalRateRoutes from './routes/metalRateRoutes.js';
 import metalListRoutes from './routes/metalListRoutes.js';
 import usersListRoutes from './routes/userListsRoutes.js';
 import EmployeesRoutes from './routes/EmployeeListRoutes.js';
+console.log('Employees Routes:', EmployeesRoutes);
 
 dotenv.config();
 const app = express();

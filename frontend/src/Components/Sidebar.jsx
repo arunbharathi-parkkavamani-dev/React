@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axiosInstance from '../api/axiosInstance';
 import { Link } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 import * as FaIcons from 'react-icons/fa';
@@ -13,7 +13,6 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Static/Sidebar.css';
 
-const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 const iconPackMap = {
   'react-icons/fa': FaIcons,
@@ -37,7 +36,7 @@ const Sidebar = ({ expanded, setExpanded }) => {
   useEffect(() => {
     const fetchSidebar = async () => {
       try {
-        const res = await axios.get(`${baseUrl}/sidebar`);
+        const res = await axiosInstance.get('/sidebar'); // ✅ Used axiosInstance
         setSidebarData(res.data);
       } catch (err) {
         console.error('Failed to fetch sidebar:', err);
@@ -46,6 +45,7 @@ const Sidebar = ({ expanded, setExpanded }) => {
 
     fetchSidebar();
   }, []);
+
 
 
 

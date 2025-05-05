@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Country, State, City } from 'country-state-city';
 import PhoneInput from 'react-phone-input-2';
@@ -13,8 +14,11 @@ import {
     Button,
     InputLabel,
     Switch,
-    Paper
+    Paper,
+    MenuItem
 } from '@mui/material';
+
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 const departments = ['HR', 'Sales', 'Billing', 'Estimation'];
 
@@ -96,9 +100,37 @@ const AddEmployees = ({ expanded }) => {
         navigate(-1);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Implement your submission logic here
+
+        try {
+            const response = await axios.get(`${baseUrl}/employees`);
+            const employeeList = response.data?.data || [];
+
+            const isUsernameTaken = employeeList.some(emp => emp.username === formData.username);
+            const isPhoneTaken = employeeList.some(emp => emp.phone === formData.phone);
+            if (isUsernameTaken || isPhoneTaken) {
+                alert('Username or Phone number already exists!');
+                return;
+            }
+
+            const formPayload = new FormData();
+            for (const key in formData) {
+                formPayload.append(key, formData[key]);
+            }
+
+            await axios.post(`${baseUrl}/employees`, formPayload, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+
+            alert('Employee added successfully!');
+            navigate(-1); // go back
+        } catch (error) {
+            console.error('Error saving employee:', error);
+            alert('There was an error saving the employee. Please try again.');
+        }
         console.log('Form submitted', formData);
     };
 
@@ -132,11 +164,11 @@ const AddEmployees = ({ expanded }) => {
                             <Typography variant="h6">Basic Information</Typography>
                             <Row>
                                 {[
-                                    ['firstName', 'First Name', false, true],
-                                    ['lastName', 'Last Name', false, true],
-                                    ['dateOfBirth', 'Date of Birth', 'date', false],
+                                    ['firstName', 'First Name', 'text', false, true],
+                                    ['lastName', 'Last Name', 'text', false, true],
+                                    ['dateOfBirth', 'Date of Birth', 'date', false, false],
                                     ['age', 'Age', 'text', true, false]
-                                ].map(([name, label, type = 'text', disabled = false], required = true) => (
+                                ].map(([name, label, type, disabled, required]) => (
                                     <Col md={6} className="mb-3" key={name}>
                                         <TextField
                                             label={label}
@@ -257,20 +289,41 @@ const AddEmployees = ({ expanded }) => {
 
                     <Typography variant="h6">Login Information</Typography>
                     <Row>
-                        {['username', 'password', 'userType', 'userPermission'].map((name) => (
+                        {[
+                            { name: 'username', type: 'text' },
+                            { name: 'password', type: 'password' },
+                            { name: 'userType', type: 'select', options: ['Admin', 'Employee', 'Manager'] },
+                            { name: 'userPermission', type: 'select', options: ['All', 'Coimbatore'] },
+                        ].map(({ name, type, options }) => (
                             <Col md={3} className="mb-3" key={name}>
-                                <TextField
-                                    label={name.replace(/([A-Z])/g, ' $1')}
-                                    name={name}
-                                    type={name === 'password' ? 'password' : 'text'}
-                                    fullWidth
-                                    value={formData[name]}
-                                    onChange={handleChange}
-                                />
+                                {type === 'select' ? (
+                                    <TextField
+                                        select
+                                        label={name.replace(/([A-Z])/g, ' $1')}
+                                        name={name}
+                                        fullWidth
+                                        value={formData[name]}
+                                        onChange={handleChange}
+                                    >
+                                        {options.map((option) => (
+                                            <MenuItem key={option} value={option}>
+                                                {option}
+                                            </MenuItem>
+                                        ))}
+                                    </TextField>
+                                ) : (
+                                    <TextField
+                                        label={name.replace(/([A-Z])/g, ' $1')}
+                                        name={name}
+                                        type={type}
+                                        fullWidth
+                                        value={formData[name]}
+                                        onChange={handleChange}
+                                    />
+                                )}
                             </Col>
                         ))}
                     </Row>
-
                     <Row>
                         <Col md={12} className="mb-3">
                             <TextField label="Comments" name="comments" multiline rows={3} fullWidth value={formData.comments} onChange={handleChange} />

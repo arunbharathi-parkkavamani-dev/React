@@ -15,8 +15,7 @@ import {
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { MdDelete, MdEdit } from 'react-icons/md';
-
-const baseUrl = import.meta.env.VITE_API_BASE_URL;
+import axiosInstance from '../../api/axiosInstance';
 
 const fields = [
     'First Name', 'EmployeeID', 'Department', 'Designation', 'Active',
@@ -31,22 +30,21 @@ const Employee = () => {
     useEffect(() => {
         const fetchEmployee = async () => {
             try {
-                const res = await fetch(`${baseUrl}/users`);
-                const data = await res.json();
-                setEmployee(data);
+                const res = await axiosInstance.get('/employees');
+                console.log('Received data:', res.data);
+                setEmployee(res.data);
             } catch (err) {
-                console.error('Error:', err);
+                console.error('Error fetching employees:', err);
             }
         };
+
         fetchEmployee();
     }, []);
 
     const handleDelete = async (id) => {
         try {
-            const response = await fetch(`${baseUrl}/users/${id}`, {
-                method: 'DELETE',
-            });
-            if (response.ok) {
+            const response = await axiosInstance.delete(`/users/${id}`);
+            if (response.status === 200) {
                 setEmployee(prev => prev.filter(emp => emp._id !== id));
             } else {
                 console.error('Failed to delete employee');

@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { HelmetProvider } from 'react-helmet-async';
 
 const getPageTitle = (pathname) => {
     const segments = pathname.split('/').filter(Boolean);
@@ -15,9 +15,9 @@ const PageTitleSetter = () => {
     const title = getPageTitle(location.pathname);
 
     return (
-        <Helmet>
+        <HelmetProvider>
             <title>{title}</title>
-        </Helmet>
+        </HelmetProvider>
     );
 };
 

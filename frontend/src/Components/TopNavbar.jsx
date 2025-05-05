@@ -1,38 +1,38 @@
 import React, { useState, useEffect } from 'react';
+import axiosInstance from '../api/axiosInstance';
 import { IoNotifications } from 'react-icons/io5';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './Static/TopNavbar.css'
+import {
+  Switch,
+  Typography,
+  Box,
+  Button as MuiButton,
+  FormControlLabel,
+} from '@mui/material';
 import UserDropdown from './UserProfile';
+import './Static/TopNavbar.css';
 
-const baseUrl = import.meta.env.VITE_API_BASE_URL;
-
-
-const TopNavbar = () => {
+const TopNavbar = ({ onThemeToggle, themeMode }) => {
   const [currentDate, setCurrentDate] = useState('');
   const [goldRate, setGoldRate] = useState(null);
 
   useEffect(() => {
     const today = new Date();
-    console.log(today)
     const formatted = today.toLocaleDateString('en-IN', {
       day: '2-digit',
       month: '2-digit',
       year: 'numeric',
-    });
-    const format = formatted.replaceAll('/', '-');
-    setCurrentDate(format);
+    }).replaceAll('/', '-');
+    setCurrentDate(formatted);
   }, []);
 
   useEffect(() => {
     const fetchGoldRate = async () => {
       try {
-        const response = await fetch(`${baseUrl}/metalRates`);
-        const data = await response.json();
+        const response = await axiosInstance.get('/metalRates'); // ✅ Replaced fetch with axiosInstance
+        const data = response.data;
 
         if (data.length > 0) {
-          // Sort by updatedAt descending
           const latest = data.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))[0];
-
           setGoldRate(latest.gold22KT);
         }
       } catch (error) {
@@ -40,34 +40,50 @@ const TopNavbar = () => {
       }
     };
 
-
     fetchGoldRate();
     const interval = setInterval(fetchGoldRate, 10000);
     return () => clearInterval(interval);
   }, []);
 
+  const handleThemeToggle = () => {
+    onThemeToggle(themeMode === 'light' ? 'dark' : 'light');
+  };
+
   return (
-    <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-darkblue px-3 py-2 w-100">
-        <div className="d-flex align-items-center">
-          <span className="navbar-brand mb-0 h4">SREE VRS Gold Diamond</span>
-        </div>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-darkblue px-3 py-2 w-100 d-flex justify-content-between align-items-center">
+      <Typography variant="h6" color="inherit" className="navbar-brand mb-0">
+        SREE VRS Gold Diamond
+      </Typography>
 
-        <div className="ms-auto d-flex align-items-center gap-3 flex-wrap text-white w-100 justify-content-end">
-          <button className="btn btn-warning btn-sm">Day Close</button>
-          <IoNotifications size={20} title="Notification" />
-          <span>FY 25-26</span>
-          <span><b>{currentDate}</b></span>
-          <button className='btn text-light' >
-            Current Gold Rate 22KT gram: <b>
-              {goldRate ? `INR ${goldRate}` : 'Loading...'}
-            </b>
-          </button>
+      <Box className="d-flex align-items-center gap-3 flex-wrap text-white">
+        <MuiButton variant="contained" size="small" color="warning">
+          Day Close
+        </MuiButton>
 
-          <UserDropdown />
-        </div>
-      </nav>
-    </>
+        <IoNotifications size={24} title="Notifications" />
+
+        <Typography variant="body2">FY 25-26</Typography>
+        <Typography variant="body2"><strong>{currentDate}</strong></Typography>
+
+        <MuiButton variant="outlined" size="small" color="inherit">
+          22KT Gold Rate: <strong>{goldRate ? `₹${goldRate}` : 'Loading...'}</strong>
+        </MuiButton>
+
+        <UserDropdown />
+
+        <FormControlLabel
+          control={
+            <Switch
+              checked={themeMode === 'dark'}
+              onChange={handleThemeToggle}
+              color="default"
+            />
+          }
+          label={themeMode === 'dark' ? 'Dark' : 'Light'}
+          sx={{ color: 'white' }}
+        />
+      </Box>
+    </nav>
   );
 };
 

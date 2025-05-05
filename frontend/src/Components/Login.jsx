@@ -58,6 +58,7 @@ const Login = () => {
                 </Typography>
                 <Box component="form" onSubmit={handleLogin}>
                     <TextField
+                        id="username"
                         label="Username"
                         variant="outlined"
                         fullWidth
@@ -67,6 +68,7 @@ const Login = () => {
                         required
                     />
                     <TextField
+                        id="password"
                         label="Password"
                         variant="outlined"
                         type="password"
@@ -82,6 +84,7 @@ const Login = () => {
                     <FormControl fullWidth margin="normal">
                         <InputLabel>Branch</InputLabel>
                         <Select
+                            id="branch"
                             value={branch}
                             label="Branch"
                             onChange={(e) => setBranch(e.target.value)}

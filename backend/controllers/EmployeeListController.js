@@ -2,9 +2,13 @@ import EmployeesList from '../models/EmployeeList.js';
 
 //Get All Employees List
 export const GetAllEmployeesList = async (req, res) => {
+    if (!req.session.EmployeeId) {
+        return res.status(401).json({ error: 'Unauthorized. Please log in.' });
+    }
     try {
         const EmployeesList = await EmployeesList.find();
         res.json(EmployeesList);
+        console.log('Employees List:', EmployeesList);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
@@ -21,6 +25,7 @@ export const GetEmployeesById = async (req, res) => {
 };
 
 export const CreateEmployeeList = async (req, res) => {
+    console.log('Received data:', req.body);
     try {
         const newEmployee = new EmployeesList(req.body);
         await newEmployee.save();

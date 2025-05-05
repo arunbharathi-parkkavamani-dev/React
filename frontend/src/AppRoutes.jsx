@@ -4,7 +4,7 @@ import Login from './Components/Login';
 import Layouts from './Components/Layouts';
 import PageTitleSetter from './PageTitleSetter'; // Make sure this is correctly imported
 
-const AppRoutes = ({ expanded, setExpanded }) => {
+const AppRoutes = ({ expanded, setExpanded, themeMode, onThemeToggle }) => {
     const location = useLocation();
 
     // Redirect from root to login
@@ -21,7 +21,12 @@ const AppRoutes = ({ expanded, setExpanded }) => {
                     path="/*"
                     element={
                         <ProtectedRoute>
-                            <Layouts expanded={expanded} setExpanded={setExpanded} />
+                            <Layouts
+                                expanded={expanded}
+                                setExpanded={setExpanded}
+                                themeMode={themeMode}
+                                onThemeToggle={onThemeToggle}  // <-- Make sure this prop is passed
+                            />
                         </ProtectedRoute>
                     }
                 />

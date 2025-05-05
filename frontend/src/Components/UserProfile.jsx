@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 import { Button, Menu, MenuItem, Avatar } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import axiosInstance from '../api/axiosInstance';
 
 const UserDropdown = () => {
     const firstName = localStorage.getItem('firstName') || 'User';
@@ -25,17 +26,15 @@ const UserDropdown = () => {
 
     const handleSignOut = async () => {
         try {
-            const res = await fetch('http://localhost:5000/api/users/logout', {
-                method: 'POST',
-                credentials: 'include', // Important to send the session cookie
+            const res = await axiosInstance.post('/users/logout', {}, { // ✅ Replaced fetch with axiosInstance
+                withCredentials: true, // Important to send the session cookie
             });
 
-            if (res.ok) {
+            if (res.status === 200) {
                 console.log('✅ Logout successful');
                 navigate('/login'); // Or your desired redirect
             } else {
-                const errData = await res.json();
-                console.error('❌ Logout failed:', errData);
+                console.error('❌ Logout failed:', res.data);
             }
         } catch (err) {
             console.error('❌ Error during logout:', err);

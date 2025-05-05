@@ -3,55 +3,44 @@ import { useRoutes, useLocation } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import TopNavbar from './TopNavbar';
 import BreadcrumbsNav from './BreadcrumbsNav';
-import Footer from './Footer'
-import { Snackbar } from '@mui/material';
-import MuiAlert from '@mui/material/Alert';
+import Footer from './Footer';
+import { Snackbar, Alert } from '@mui/material';
+import UpdateMetalRate from '../Pages/MetalRates/UpdateMatelRate.jsx';
 
 const pages = import.meta.glob('../Pages/**/*.jsx', { eager: true });
 
-console.log(pages);  // Check if this logs the pages object correctly
-const Alert = React.forwardRef(function Alert(props, ref) {
-    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
-
-
 const kebabCase = (str) =>
-    str.replace(/([a-z])([A-Z])/g, '$1-$2').replace(/([A-Z])([A-Z][a-z])/g, '$1-$2').toLowerCase();
+    str
+        .replace(/\./g, '') // remove all dots
+        .replace(/([a-z])([A-Z])/g, '$1-$2') // insert hyphen between camelCase
+        .replace(/([A-Z])([A-Z][a-z])/g, '$1-$2') // handle acronyms
+        .toLowerCase();
+
 
 const formatPath = (filePath) => {
-    const cleaned = filePath
-        .replace('./Pages/', '')  // remove base prefix
-        .replace(/\.jsx$/, '');              // remove file extension
+    const cleaned = filePath.replace('./Pages/', '').replace(/\.jsx$/, '');
+    const parts = cleaned.split('/');
+    const fileName = parts.pop();
+    const basePath = parts.map(kebabCase).join('/');
+    console.log('basePath', basePath, 'fileName', fileName);
 
-    const parts = cleaned.split('/'); // folder/file segments
-    const fileName = parts.pop();     // get last item
-
-    const basePath = parts.map(kebabCase).join('/'); // kebab-case folders
-
-    // Special case: index.jsx → just the folder
     if (fileName.toLowerCase() === 'index') {
         return `/admin/${basePath}`;
     }
 
-    // sub-page: add fileName as kebab
     return `/admin/${basePath}/${kebabCase(fileName)}`;
 };
 
 const routes = Object.entries(pages).map(([filePath, module]) => {
     const Component = module.default;
-    const routePath = formatPath(filePath);
-    console.log('Generated Route:', routePath);
-
     return {
-        path: routePath,
+        path: formatPath(filePath),
         element: (
             <Suspense fallback={<div className="m-3">Loading...</div>}>
                 <Component />
             </Suspense>
         ),
-
     };
-
 });
 
 routes.push({
@@ -60,44 +49,33 @@ routes.push({
 });
 
 const getPageTitle = (pathname) => {
-    const segments = pathname
-        .split('/')
-        .filter(Boolean)
-        .filter(seg => seg !== 'admin');
-
-    // Filter out MongoDB ObjectId (24-character hex strings)
-    const filteredSegments = segments.filter(seg => !/^[a-f\d]{24}$/i.test(seg));
-
-    if (filteredSegments.length === 0) return 'Dashboard';
-
-    const lastMeaningfulSegment = filteredSegments[filteredSegments.length - 1];
-
-    return lastMeaningfulSegment
-        .replace(/[-_]/g, ' ')
-        .replace(/\b\w/g, c => c.toUpperCase());
+    const segments = pathname.split('/').filter(Boolean).filter((seg) => seg !== 'admin');
+    const filtered = segments.filter((seg) => !/^[a-f\d]{24}$/i.test(seg));
+    const last = filtered[filtered.length - 1] || 'Dashboard';
+    return last.replace(/[-_]/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 };
 
-
-const Layout = ({ expanded, setExpanded }) => {
+const Layout = ({ expanded, setExpanded, themeMode, onThemeToggle }) => {
     const location = useLocation();
     const element = useRoutes(routes);
     const pageTitle = getPageTitle(location.pathname);
-    const [snackbarOpen, setSnackbarOpen] = useState(false)
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
     const firstName = localStorage.getItem('firstName') || 'User';
 
-
-    // Inside Layout component
     useEffect(() => {
         setSnackbarOpen(true);
     }, []);
-
 
     return (
         <>
             <div className="d-flex">
                 <Sidebar expanded={expanded} setExpanded={setExpanded} />
                 <div className="flex-grow-1">
-                    <TopNavbar expanded={expanded} />
+                    <TopNavbar
+                        expanded={expanded}
+                        onThemeToggle={onThemeToggle}   /* Pass the onThemeToggle here */
+                        themeMode={themeMode}  /* Pass themeMode */
+                    />
                     <h1 className="text-dark fs-5 mx-3">{pageTitle}</h1>
                     <BreadcrumbsNav />
                     {element}
@@ -107,7 +85,11 @@ const Layout = ({ expanded, setExpanded }) => {
                         onClose={() => setSnackbarOpen(false)}
                         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
                     >
-                        <Alert onClose={() => setSnackbarOpen(false)} severity="success" sx={{ width: '100%' }}>
+                        <Alert
+                            onClose={() => setSnackbarOpen(false)}
+                            severity="success"
+                            sx={{ width: '100%' }}
+                        >
                             Welcome..!, {firstName}
                         </Alert>
                     </Snackbar>
