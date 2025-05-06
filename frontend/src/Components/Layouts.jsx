@@ -6,6 +6,7 @@ import BreadcrumbsNav from './BreadcrumbsNav';
 import Footer from './Footer';
 import { Snackbar, Alert } from '@mui/material';
 import UpdateMetalRate from '../Pages/MetalRates/UpdateMatelRate.jsx';
+import UpdateEmployee from '../Pages/Employee/UpdateEmployee.jsx';
 
 const pages = import.meta.glob('../Pages/**/*.jsx', { eager: true });
 
@@ -22,7 +23,6 @@ const formatPath = (filePath) => {
     const parts = cleaned.split('/');
     const fileName = parts.pop();
     const basePath = parts.map(kebabCase).join('/');
-    console.log('basePath', basePath, 'fileName', fileName);
 
     if (fileName.toLowerCase() === 'index') {
         return `/admin/${basePath}`;
@@ -43,11 +43,16 @@ const routes = Object.entries(pages).map(([filePath, module]) => {
     };
 });
 
-routes.push({
-    path: '/admin/metal-rates/update-metal-rate/:id',
-    element: <UpdateMetalRate />,
-});
-
+routes.push(
+    {
+        path: '/admin/metal-rates/update-metal-rate/:id',
+        element: <UpdateMetalRate />
+    },
+    {
+        path: '/admin/Employee/update-employees/:id',
+        element: <UpdateEmployee />
+    }
+);
 const getPageTitle = (pathname) => {
     const segments = pathname.split('/').filter(Boolean).filter((seg) => seg !== 'admin');
     const filtered = segments.filter((seg) => !/^[a-f\d]{24}$/i.test(seg));

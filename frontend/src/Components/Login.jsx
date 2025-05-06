@@ -42,7 +42,7 @@ const Login = () => {
             const firstName = response.data.firstName
             const formattedName = firstName.charAt(0).toUpperCase() + firstName.slice(1).toLowerCase();
             localStorage.setItem('firstName', formattedName);
-            navigate(`/employees/admin/Dashboard`);
+            navigate(`/admin/Dashboard`);
             console.log(response);
         } catch (err) {
             console.error(err);

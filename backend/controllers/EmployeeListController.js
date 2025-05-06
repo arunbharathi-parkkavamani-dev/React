@@ -1,52 +1,67 @@
-import EmployeesList from '../models/EmployeeList.js';
+import EmployeesList from "../models/EmployeeList.js";
 
 //Get All Employees List
 export const GetAllEmployeesList = async (req, res) => {
-    if (!req.session.EmployeeId) {
-        return res.status(401).json({ error: 'Unauthorized. Please log in.' });
-    }
     try {
-        const EmployeesList = await EmployeesList.find();
-        res.json(EmployeesList);
-        console.log('Employees List:', EmployeesList);
+        const employees = await EmployeesList.find();  // Use 'employees' instead of 'EmployeesList'
+        res.json(employees);
     } catch (err) {
-        res.status(500).json({ error: err.message });
+        res.status(500).json({ "This is from get All Employee": err.message });
     }
-
 };
 
 export const GetEmployeesById = async (req, res) => {
     try {
-        const EmployeeList = await EmployeesList.findById(req.params.id);
-        res.json(EmployeeList);
+        const employee = await EmployeesList.findById(req.params.id);
+        res.json(employee);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
 };
 
 export const CreateEmployeeList = async (req, res) => {
-    console.log('Received data:', req.body);
+
     try {
-        const newEmployee = new EmployeesList(req.body);
+        const employeeData = {
+            ...req.body,
+            profileImage: req.file ? `/uploads/${req.file.filename}` : '', // Set profileImage path if a file was uploaded
+        };
+
+        const newEmployee = new EmployeesList(employeeData);
         await newEmployee.save();
+
         res.status(201).json({ message: 'Employee Added Successfully' });
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
 };
 
+
 export const UpdateEmployeeList = async (req, res) => {
+    const updatedData = { ...req.body };
+
+    if (req.file) {
+        updatedData.profileImage = `/uploads/${req.file.filename}`;
+    }
+
     try {
-        const updateEmployeeList = await EmployeesList.findByIdAndUpdate(req.params.id, req.body, {
-            new: true,
-            runValidators: true
-        });
-        if (!updateEmployeeList) return res.status(404).json({ error: "Employee List not Found" });
+        const updateEmployeeList = await EmployeesList.findByIdAndUpdate(
+            req.params.id,
+            updatedData,
+            {
+                new: true,
+                runValidators: true
+            }
+        );
+        if (!updateEmployeeList)
+            return res.status(404).json({ error: "Employee List not Found" });
+
         res.json({ message: 'Updated Successfully' });
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
 };
+
 
 export const DeleteEmployeeList = async (req, res) => {
     try {
@@ -68,7 +83,6 @@ export const Login = async (req, res) => {
         req.session.EmployeeId = Employee._id;
         req.session.name = Employee.firstName;
         res.json({ message: 'Logged In', firstName: Employee.firstName });
-        console.log('firstName:', Employee.firstName);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }

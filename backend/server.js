@@ -103,6 +103,8 @@ try {
   console.error('❌ Failed to load Employees routes:', err);
 }
 
+app.use('/uploads', express.static('uploads'));
+
 // Start Server
 app.listen(PORT, () => {
   // console.log(`🚀 Server running at: http://localhost:${PORT}`);

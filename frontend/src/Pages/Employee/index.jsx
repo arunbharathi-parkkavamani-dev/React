@@ -31,7 +31,6 @@ const Employee = () => {
         const fetchEmployee = async () => {
             try {
                 const res = await axiosInstance.get('/employees');
-                console.log('Received data:', res.data);
                 setEmployee(res.data);
             } catch (err) {
                 console.error('Error fetching employees:', err);
@@ -43,7 +42,7 @@ const Employee = () => {
 
     const handleDelete = async (id) => {
         try {
-            const response = await axiosInstance.delete(`/users/${id}`);
+            const response = await axiosInstance.delete(`/employees/${id}`);
             if (response.status === 200) {
                 setEmployee(prev => prev.filter(emp => emp._id !== id));
             } else {
@@ -97,7 +96,7 @@ const Employee = () => {
                                         <Tooltip title="Edit">
                                             <IconButton
                                                 color="primary"
-                                                onClick={() => navigate(`/admin/Employee/update-employee/${emp._id}`)}
+                                                onClick={() => navigate(`/admin/Employee/update-employees/${emp._id}`)}
                                             >
                                                 <MdEdit />
                                             </IconButton>

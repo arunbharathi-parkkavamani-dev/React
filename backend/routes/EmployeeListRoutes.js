@@ -1,21 +1,29 @@
 import express from 'express';
-import { CreateEmployeeList, DeleteEmployeeList, GetAllEmployeesList, getCurrentEmployee, GetEmployeesById, Login, Logout, UpdateEmployeeList } from '../controllers/EmployeeListController.js';
-
+import {
+    CreateEmployeeList,
+    DeleteEmployeeList,
+    GetAllEmployeesList,
+    getCurrentEmployee,
+    GetEmployeesById,
+    Login,
+    Logout,
+    UpdateEmployeeList
+} from '../controllers/EmployeeListController.js';
+import { upload } from '../middleware/multer.js';
 
 const router = express.Router();
 
+// Authentication routes
+router.post('/login', Login);
+router.post('/logout', Logout);
 
-router.post('/login', Login);                   // POST login
-router.post('/logout', Logout);                 // POST logout
-router.get('/:me', getCurrentEmployee);         // GET current logged in Employee
-router.get('/', GetAllEmployeesList);           // GET all Employees
-router.get('/:id', GetEmployeesById);           // GET Employee by ID
-router.post('/', CreateEmployeeList);           // POST create Employee
-router.put('/:id', UpdateEmployeeList);         // PUT update Employee
-router.delete('/:id', DeleteEmployeeList);      // DELETE Employee
-
-
-
+// Employee routes
+router.get('/me', getCurrentEmployee);  // <- fixed
+router.get('/', GetAllEmployeesList);
+router.get('/:id', GetEmployeesById); // GET /api/employees/:id
+router.put('/:id', upload.single('profilePicture'), UpdateEmployeeList);
+router.post('/', upload.single('profilePicture'), CreateEmployeeList); // POST /api/employees/
+router.put('/:id', upload.single('profilePicture'), UpdateEmployeeList);
+router.delete('/:id', DeleteEmployeeList);
 
 export default router;
-

@@ -46,7 +46,7 @@ export const deleteMetalList = async (req, res) => {
         const deleted = await MetalList.findByIdAndDelete(req.params.id);
         if (!deleted) return res.status(404).json({ error: 'Metal List not found' });
         res.json({ message: 'Deleted successfully' });
-    } catch (error) {
-        res.status(500).json({ error: 'Failed to delete metal rate' });
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to delete metal rate', err });
     }
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axiosInstance from '../../api/axiosInstance.js'
 import { Container, Row, Col } from 'react-bootstrap';
 import { Country, State, City } from 'country-state-city';
@@ -7,6 +7,9 @@ import { useNavigate } from 'react-router-dom';
 import 'react-phone-input-2/lib/style.css';
 import './static/style.css';
 import PincodeData from './static/pincodes.json';
+import MuiAlert from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
+import { useParams } from 'react-router-dom';
 import {
     Typography,
     TextField,
@@ -17,44 +20,63 @@ import {
     Paper,
     MenuItem
 } from '@mui/material';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 const departments = ['HR', 'Sales', 'Billing', 'Estimation'];
 
-const AddEmployees = ({ expanded }) => {
+const UpdateEmployee = ({ expanded }) => {
+    const { id } = useParams();
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         firstName: '', lastName: '', dateOfBirth: '', age: '',
         employeeId: '', dateOfJoining: '', designation: '', department: '', isActive: true,
         address1: '', address2: '', address3: '', city: '', state: '', country: '', pinCode: '',
         area: '', phone: '', email: '', username: '', password: '', userType: '', branchPermission: '',
-        comments: '', profilePicture: null
+        comments: '', profilePicture: ''
     });
-
     const [validationErrors, setValidationErrors] = useState({
         username: '',
         phone: ''
     });
-
-
     const [location, setLocation] = useState({ country: '', state: '', city: '' });
     const [dialCode, setDialCode] = useState('in');
     const [areaOptions, setAreaOptions] = useState([]);
-    const navigate = useNavigate();
 
-    const calculateAge = (dob) => {
-        const birthDate = new Date(dob);
-        const today = new Date();
-        let age = today.getFullYear() - birthDate.getFullYear();
-        const m = today.getMonth() - birthDate.getMonth();
-        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) age--;
-        if (age < 0) alert("Age cannot be negative!"); // Ensure age is not negative
-        return age.toString();
-    };
+    useEffect(() => {
+        const fetchEmployeeData = async () => {
+            try {
+                const response = await axiosInstance.get(`/employees/${id}`);
+                const employeeData = response.data;
+                setFormData(employeeData);
+
+
+                // Set selected country, state, and city based on the fetched data
+                setLocation({
+                    country: Country.getAllCountries().find(c => c.name === employeeData.country)?.isoCode || '',
+                    state: State.getStatesOfCountry(
+                        Country.getAllCountries().find(c => c.name === employeeData.country)?.isoCode || ''
+                    ).find(s => s.name === employeeData.state)?.isoCode || '',
+                    city: employeeData.city
+                });
+            } catch (error) {
+                console.error('Error fetching employee data:', error);
+            }
+        };
+
+        fetchEmployeeData();
+    }, [id]);
 
     const validateUniqueFields = async (name, value) => {
         try {
             const response = await axiosInstance.get('/employees');
             const employeeList = response.data?.data || [];
 
-            const exists = employeeList.some(emp => emp[name] === value);
+            const exists = employeeList.some(emp => emp[name] === value && emp._id !== id);
+
             setValidationErrors((prev) => ({
                 ...prev,
                 [name]: exists ? `${name.charAt(0).toUpperCase() + name.slice(1)} already exists!` : ''
@@ -66,6 +88,15 @@ const AddEmployees = ({ expanded }) => {
         }
     };
 
+    const calculateAge = (dob) => {
+        const birthDate = new Date(dob);
+        const today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) age--;
+        if (age < 0) alert("Age cannot be negative!"); // Ensure age is not negative
+        return age.toString();
+    };
 
     const handleChange = async (e) => {
         const { name, value, type, checked, files } = e.target;
@@ -83,11 +114,9 @@ const AddEmployees = ({ expanded }) => {
 
     };
 
-
     const handleCountryChange = (_, value) => {
         const isoCode = value?.isoCode || '';
-        setLocation({ country: isoCode, state: '', city: '' });
-        setFormData((prev) => ({ ...prev, country: value?.name || '' }));
+        setFormData((prev) => ({ ...prev, country: value?.name || formData.country }));
         setDialCode(isoCode.toLowerCase());
     };
 
@@ -98,7 +127,7 @@ const AddEmployees = ({ expanded }) => {
     };
 
     const handleCityChange = (_, value) => {
-        setFormData((prev) => ({ ...prev, city: value?.name || '' }));
+        setFormData((prev) => ({ ...prev, city: value?.name || formData.city }));
     };
 
     const handlePincodeChange = (value) => {
@@ -128,6 +157,7 @@ const AddEmployees = ({ expanded }) => {
         navigate(-1);
     };
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -148,20 +178,20 @@ const AddEmployees = ({ expanded }) => {
             }
 
             // Use the pre-configured axios instance
-            await axiosInstance.post('/employees', formPayload, {
+            await axiosInstance.put(`/employees/${id}`, formPayload, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
             });
 
-            alert('Employee added successfully!');
+            alert('Employee updated successfully!');
             navigate(-1); // go back
         } catch (error) {
             console.error('Error saving employee:', error);
             alert('There was an error saving the employee. Please try again.');
         }
     };
-
+    const isNewFile = formData.profilePicture instanceof File;
 
     return (
         <Container fluid className="mt-4 employee-form" style={{ width: expanded ? 'calc(100vw - 95px)' : 'calc(100vw - 200px)' }}>
@@ -171,11 +201,19 @@ const AddEmployees = ({ expanded }) => {
                     <Row>
                         <Col md={6} className="mb-3 d-flex flex-column align-items-center">
                             <Typography variant="h6">Profile Picture</Typography>
+
                             <img
-                                src={formData.profilePicture ? URL.createObjectURL(formData.profilePicture) : './static/default.png'}
+                                src={isNewFile ? URL.createObjectURL(formData.profilePicture) : formData.profilePicture || './static/default.png'}
                                 alt="Preview"
-                                style={{ width: 290, height: 290, objectFit: 'cover', border: '1px solid #ccc', marginBottom: 10 }}
+                                style={{
+                                    width: 290,
+                                    height: 290,
+                                    objectFit: 'cover',
+                                    border: '1px solid #ccc',
+                                    marginBottom: 10
+                                }}
                             />
+
                             <input
                                 accept="image/*"
                                 id="profilePicture"
@@ -394,4 +432,4 @@ const AddEmployees = ({ expanded }) => {
     );
 };
 
-export default AddEmployees;
+export default UpdateEmployee;
