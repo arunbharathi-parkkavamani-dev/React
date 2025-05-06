@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axiosInstance from '../api/axiosInstance';
 import { IoNotifications } from 'react-icons/io5';
+import { useLocation } from 'react-router-dom';
 import {
   Switch,
   Typography,
@@ -14,6 +15,7 @@ import './Static/TopNavbar.css';
 const TopNavbar = ({ onThemeToggle, themeMode }) => {
   const [currentDate, setCurrentDate] = useState('');
   const [goldRate, setGoldRate] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
     const today = new Date();
@@ -54,11 +56,13 @@ const TopNavbar = ({ onThemeToggle, themeMode }) => {
       <Typography variant="h6" color="inherit" className="navbar-brand mb-0">
         SREE VRS Gold Diamond
       </Typography>
-
+      {/* Check if the loaction path on /dashboard if not remove day close button */}
       <Box className="d-flex align-items-center gap-3 flex-wrap text-white">
-        <MuiButton variant="contained" size="small" color="warning">
-          Day Close
-        </MuiButton>
+        {location.pathname === '/admin/Dashboard' && (
+          <MuiButton variant="contained" size="small" color="warning">
+            Day Close
+          </MuiButton>
+        )}
 
         <IoNotifications size={24} title="Notifications" />
 

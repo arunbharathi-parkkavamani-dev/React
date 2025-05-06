@@ -21,9 +21,8 @@ router.post('/logout', Logout);
 router.get('/me', getCurrentEmployee);  // <- fixed
 router.get('/', GetAllEmployeesList);
 router.get('/:id', GetEmployeesById); // GET /api/employees/:id
-router.put('/:id', upload.single('profilePicture'), UpdateEmployeeList);
-router.post('/', upload.single('profilePicture'), CreateEmployeeList); // POST /api/employees/
-router.put('/:id', upload.single('profilePicture'), UpdateEmployeeList);
+router.put('/:id', upload.single('profileImage'), UpdateEmployeeList);
+router.post('/', upload.single('profileImage'), CreateEmployeeList); // POST /api/employees/
 router.delete('/:id', DeleteEmployeeList);
 
 export default router;

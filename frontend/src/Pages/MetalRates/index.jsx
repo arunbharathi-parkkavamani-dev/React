@@ -51,66 +51,67 @@ const MetalRatesList = () => {
     };
 
     return (
-        <Box p={3}>
-            <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
-                <Typography variant="h5">Metal Rates List</Typography>
-                <Button variant="contained" color="primary" onClick={() => navigate("/admin/metal-rates/add-metal-rates")}>
-                    Add Metal Rate
-                </Button>
-            </Box>
+        <>
+            <br />
+            <Box p={3}>
+                <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
+                    <Typography variant="h5">Metal Rates List</Typography>
+                    <Button variant="contained" color="primary" onClick={() => navigate("/admin/metal-rates/add-metal-rates")}>
+                        Add Metal Rate
+                    </Button>
+                </Box>
 
-            <TableContainer component={Paper}>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>Date</TableCell>
-                            <TableCell>Updated Time</TableCell>
-                            <TableCell>Gold 24K Rate (INR)</TableCell>
-                            <TableCell>Gold 22K Rate (INR)</TableCell>
-                            <TableCell>Gold 20K Rate (INR)</TableCell>
-                            <TableCell>Gold 18K Rate (INR)</TableCell>
-                            <TableCell>Silver 1G Rate (INR)</TableCell>
-                            <TableCell>Silver 1KG Rate (INR)</TableCell>
-                            <TableCell>Platinum 1G Rate (INR)</TableCell>
-                            <TableCell>Employee</TableCell>
-                            <TableCell>Action</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {metalRates.map((rate) => (
-                            <TableRow key={rate._id}>
-                                <TableCell>{new Date(rate.updatedAt).toDateString().slice(0, 15)}</TableCell>
-                                <TableCell>{new Date(rate.updatedAt).toTimeString().split(" ")[0].slice(0, 5)}</TableCell>
-                                <TableCell>{rate.gold24KT}</TableCell>
-                                <TableCell>{rate.gold22KT}</TableCell>
-                                <TableCell>{rate.gold20KT}</TableCell>
-                                <TableCell>{rate.gold18KT}</TableCell>
-                                <TableCell>{rate.silver}</TableCell>
-                                <TableCell>{rate.silverKg}</TableCell>
-                                <TableCell>{rate.platinum}</TableCell>
-                                <TableCell>{rate.employee}</TableCell>
-                                <TableCell>
-                                    <Button
-                                        variant="outlined"
-                                        size="small"
-                                        onClick={() => navigate(`/admin/metal-rates/update-metal-rate/${rate._id}`)}
-                                        startIcon={<MdEdit />}
-                                    >
-                                    </Button>
-                                    <Button
-                                        variant="outlined"
-                                        size="small"
-                                        onClick={() => handleDelete(rate._id)}
-                                        startIcon={<MdDelete />}
-                                    >
-                                    </Button>
-                                </TableCell>
+                <TableContainer component={Paper}>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Date</TableCell>
+                                <TableCell>Updated Time</TableCell>
+                                <TableCell>Gold 24K Rate (INR)</TableCell>
+                                <TableCell>Gold 22K Rate (INR)</TableCell>
+                                <TableCell>Gold 18K Rate (INR)</TableCell>
+                                <TableCell>Silver 1G Rate (INR)</TableCell>
+                                <TableCell>Silver 1KG Rate (INR)</TableCell>
+                                <TableCell>Platinum 1G Rate (INR)</TableCell>
+                                <TableCell>Employee</TableCell>
+                                <TableCell>Action</TableCell>
                             </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        </Box>
+                        </TableHead>
+                        <TableBody>
+                            {metalRates.map((rate) => (
+                                <TableRow key={rate._id}>
+                                    <TableCell>{new Date(rate.updatedAt).toDateString().slice(0, 15)}</TableCell>
+                                    <TableCell>{new Date(rate.updatedAt).toTimeString().split(" ")[0].slice(0, 5)}</TableCell>
+                                    <TableCell>{rate.gold24KT}</TableCell>
+                                    <TableCell>{rate.gold22KT}</TableCell>
+                                    <TableCell>{rate.gold18KT}</TableCell>
+                                    <TableCell>{rate.silver}</TableCell>
+                                    <TableCell>{rate.silverKg}</TableCell>
+                                    <TableCell>{rate.platinum}</TableCell>
+                                    <TableCell>{rate.employee}</TableCell>
+                                    <TableCell className="d-flex gap-2">
+                                        <Button
+                                            variant="outlined"
+                                            size="small"
+                                            onClick={() => navigate(`/admin/metal-rates/update-metal-rate/${rate._id}`)}
+                                            startIcon={<MdEdit />}
+                                        >
+                                        </Button>
+                                        <Button
+                                            variant="outlined"
+                                            size="small"
+                                            onClick={() => handleDelete(rate._id)}
+                                            startIcon={<MdDelete />}
+                                        >
+                                        </Button>
+                                    </TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+            </Box>
+        </>
     );
 };
 

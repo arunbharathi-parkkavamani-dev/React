@@ -6,14 +6,13 @@ h5 {
     color: rgb(107, 106, 106);
 }
 
-.content-tab {
+/* .content-tab {
     border: 1px solid blue;
     border-radius: 8px;
     display: inline-block;
-    /* So it wraps tightly */
     padding: 8px 16px;
     margin-top: 12px;
-}
+} */
 
 
 .bg-gray {
