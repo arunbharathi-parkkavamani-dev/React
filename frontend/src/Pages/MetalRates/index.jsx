@@ -12,13 +12,16 @@ import {
     Box,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { MdDelete, MdEdit } from 'react-icons/md';
+import SearchBar from '../../Components/SearchComponent';
 
 const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 const MetalRatesList = () => {
     const [metalRates, setMetalRates] = useState([]);
     const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
         const fetchMetalRates = async () => {
@@ -60,7 +63,12 @@ const MetalRatesList = () => {
                         Add Metal Rate
                     </Button>
                 </Box>
-
+                <SearchBar
+                    className="float-end"
+                    searchUrl={`${location.pathname}/search`}
+                    placeholder="Search metals..."
+                    onResults={(results) => setMetalRates(results)}
+                />
                 <TableContainer component={Paper}>
                     <Table>
                         <TableHead>
