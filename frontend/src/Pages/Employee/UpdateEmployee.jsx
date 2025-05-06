@@ -36,7 +36,7 @@ const UpdateEmployee = ({ expanded }) => {
         employeeId: '', dateOfJoining: '', designation: '', department: '', isActive: true,
         address1: '', address2: '', address3: '', city: '', state: '', country: '', pinCode: '',
         area: '', phone: '', email: '', username: '', password: '', userType: '', branchPermission: '',
-        comments: '', profilePicture: ''
+        comments: '', profileImage: ''
     });
     const [validationErrors, setValidationErrors] = useState({
         username: '',
@@ -152,7 +152,7 @@ const UpdateEmployee = ({ expanded }) => {
             employeeId: '', dateOfJoining: '', designation: '', department: '', isActive: true,
             address1: '', address2: '', address3: '', city: '', state: '', country: '', pinCode: '',
             area: '', phone: '', email: '', username: '', password: '', userType: '', branchPermission: '',
-            comments: '', profilePicture: null
+            comments: '', profileImage: ''
         });
         navigate(-1);
     };
@@ -173,8 +173,8 @@ const UpdateEmployee = ({ expanded }) => {
             for (const key in formData) {
                 formPayload.append(key, formData[key]);
             }
-            if (formData.profilePicture) {
-                formPayload.append("profilePicture", formData.profilePicture);
+            if (formData.profileImage) {
+                formPayload.append("profileImage", formData.profileImage);
             }
 
             // Use the pre-configured axios instance
@@ -191,7 +191,7 @@ const UpdateEmployee = ({ expanded }) => {
             alert('There was an error saving the employee. Please try again.');
         }
     };
-    const isNewFile = formData.profilePicture instanceof File;
+    const isNewFile = formData.profileImage instanceof File;
 
     return (
         <Container fluid className="mt-4 employee-form" style={{ width: expanded ? 'calc(100vw - 95px)' : 'calc(100vw - 200px)' }}>
@@ -203,7 +203,7 @@ const UpdateEmployee = ({ expanded }) => {
                             <Typography variant="h6">Profile Picture</Typography>
 
                             <img
-                                src={isNewFile ? URL.createObjectURL(formData.profilePicture) : formData.profilePicture || './static/default.png'}
+                                src={isNewFile ? URL.createObjectURL(formData.profileImage) : formData.profileImage || './static/default.png'}
                                 alt="Preview"
                                 style={{
                                     width: 290,
@@ -216,13 +216,13 @@ const UpdateEmployee = ({ expanded }) => {
 
                             <input
                                 accept="image/*"
-                                id="profilePicture"
+                                id="profileImage"
                                 type="file"
-                                name="profilePicture"
-                                onChange={(e) => setFormData({ ...formData, profilePicture: e.target.files[0] })}
+                                name="profileImage"
+                                onChange={(e) => setFormData({ ...formData, profileImage: e.target.files[0] })}
                                 style={{ display: 'none' }}
                             />
-                            <label htmlFor="profilePicture">
+                            <label htmlFor="profileImage">
                                 <Button variant="outlined" component="span">Choose Image</Button>
                             </label>
                         </Col>

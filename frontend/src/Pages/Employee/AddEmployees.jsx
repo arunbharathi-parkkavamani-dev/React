@@ -25,7 +25,7 @@ const AddEmployees = ({ expanded }) => {
         employeeId: '', dateOfJoining: '', designation: '', department: '', isActive: true,
         address1: '', address2: '', address3: '', city: '', state: '', country: '', pinCode: '',
         area: '', phone: '', email: '', username: '', password: '', userType: '', branchPermission: '',
-        comments: '', profilePicture: null
+        comments: '', profileImage: null
     });
 
     const [validationErrors, setValidationErrors] = useState({
@@ -123,7 +123,7 @@ const AddEmployees = ({ expanded }) => {
             employeeId: '', dateOfJoining: '', designation: '', department: '', isActive: true,
             address1: '', address2: '', address3: '', city: '', state: '', country: '', pinCode: '',
             area: '', phone: '', email: '', username: '', password: '', userType: '', branchPermission: '',
-            comments: '', profilePicture: null
+            comments: '', profileImage: null
         });
         navigate(-1);
     };
@@ -143,8 +143,8 @@ const AddEmployees = ({ expanded }) => {
             for (const key in formData) {
                 formPayload.append(key, formData[key]);
             }
-            if (formData.profilePicture) {
-                formPayload.append("profilePicture", formData.profilePicture);
+            if (formData.profileImage) {
+                formPayload.append("profileImage", formData.profileImage);
             }
 
             // Use the pre-configured axios instance
@@ -172,19 +172,19 @@ const AddEmployees = ({ expanded }) => {
                         <Col md={6} className="mb-3 d-flex flex-column align-items-center">
                             <Typography variant="h6">Profile Picture</Typography>
                             <img
-                                src={formData.profilePicture ? URL.createObjectURL(formData.profilePicture) : './static/default.png'}
+                                src={formData.profileImage ? URL.createObjectURL(formData.profileImage) : './static/default.png'}
                                 alt="Preview"
                                 style={{ width: 290, height: 290, objectFit: 'cover', border: '1px solid #ccc', marginBottom: 10 }}
                             />
                             <input
                                 accept="image/*"
-                                id="profilePicture"
+                                id="profileImage"
                                 type="file"
-                                name="profilePicture"
-                                onChange={(e) => setFormData({ ...formData, profilePicture: e.target.files[0] })}
+                                name="profileImage"
+                                onChange={(e) => setFormData({ ...formData, profileImage: e.target.files[0] })}
                                 style={{ display: 'none' }}
                             />
-                            <label htmlFor="profilePicture">
+                            <label htmlFor="profileImage">
                                 <Button variant="outlined" component="span">Choose Image</Button>
                             </label>
                         </Col>
